@@ -43,6 +43,7 @@
   flex: 1;
   padding: 8px;
   overflow: auto;
+  background-color: var(--card-bg);
 }
 
 #MyApp .resize-handle {
