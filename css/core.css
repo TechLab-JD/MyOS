@@ -82,6 +82,7 @@
     background-color: transparent;
     border: none;
     font-size: 20px;
+    color: var(--text);
 }
 
 .menu-list button:hover {
