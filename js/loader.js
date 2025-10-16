@@ -6,42 +6,59 @@ async function loadApps() {
   const appWindows = document.getElementById('app-windows');
 
   apps.forEach(app => {
-    // 1️⃣ Add icon to app list
+    // add icon to the app list
     const iconBtn = document.createElement('button');
     iconBtn.className = 'app-icon';
     iconBtn.title = app.name;
     iconBtn.innerHTML = `<img src="${app.icon}" alt="${app.name}" />`;
     appList.appendChild(iconBtn);
 
-    // 2️⃣ Load app HTML dynamically (hidden initially)
+    // fetch app HTML and import the .app-window node
     fetch(app.html)
       .then(res => res.text())
       .then(html => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const appWindow = doc.querySelector('.app-window');
-        if (appWindow) {
-          appWindow.style.display = 'none';
-          appWindows.appendChild(appWindow);
+        if (!appWindow) return;
 
-        // 3️⃣ Load CSS
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = app.css;
-        wrapper.appendChild(link);
+        // import node into current document to ensure scripts/styles execute in correct context
+        const imported = document.importNode(appWindow, true);
+        imported.style.display = 'none';
+        appWindows.appendChild(imported);
 
-        // 4️⃣ Load JS
-        const script = document.createElement('script');
-        script.src = app.js;
-        script.defer = true;
-        wrapper.appendChild(script);
+        // inject CSS (only if not already present)
+        if (app.css && !document.querySelector(`link[href="${app.css}"]`)) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = app.css;
+          document.head.appendChild(link);
+        }
 
-        // 5️⃣ Show app when icon clicked
+        // inject JS (only if not already present)
+        if (app.js && !document.querySelector(`script[src="${app.js}"]`)) {
+          const script = document.createElement('script');
+          script.src = app.js;
+          script.defer = true;
+          document.body.appendChild(script);
+        }
+
+        // register with windowManager if available
+        if (window.windowManager) {
+          window.windowManager.setupWindow(imported);
+        }
+
+        // show the app when its icon is clicked
         iconBtn.addEventListener('click', () => {
-          wrapper.style.display = 'block';
+          imported.style.display = 'flex';
+          if (window.windowManager) {
+            window.windowManager.setupWindow(imported);
+            window.windowManager.bringToFront(imported);
+          }
         });
-      });
+      })
+      .catch(err => console.error('Failed to load app:', app.id, err));
   });
 }
 
-loadApps();
+document.addEventListener('DOMContentLoaded', loadApps);
