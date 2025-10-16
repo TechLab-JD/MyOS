@@ -1,5 +1,5 @@
 /* Scoped to #myApp */
-#myApp {
+#MyApp {
   position: absolute;
   top: 100px;
   left: 100px;
@@ -15,7 +15,7 @@
   z-index: 100;
 }
 
-#myApp .app-header {
+#MyApp .app-header {
   height: 32px;
   background-color: #2a2a2a;
   display: flex;
@@ -26,9 +26,9 @@
   user-select: none;
 }
 
-#myApp .app-title { font-weight: bold; font-size: 0.9rem; }
+#MyApp .app-title { font-weight: bold; font-size: 0.9rem; }
 
-#myApp .app-controls button {
+#MyApp .app-controls button {
   background: none;
   border: none;
   color: #fff;
@@ -39,13 +39,13 @@
   line-height: 0;
 }
 
-#myApp .app-content {
+#MyApp .app-content {
   flex: 1;
   padding: 8px;
   overflow: auto;
 }
 
-#myApp .resize-handle {
+#MyApp .resize-handle {
   width: 16px;
   height: 16px;
   position: absolute;
