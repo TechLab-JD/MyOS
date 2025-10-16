@@ -209,11 +209,14 @@
 }
 
 .calendar-day.today {
-  background: var(--accent);
-  color: white;
+  background: linear-gradient(135deg, var(--accent), #0077ff);
+  color: #12b3aa;
   font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 120, 255, 0.5);
 }
 
 .calendar-day.other-month {
   opacity: 0.3;
 }
+

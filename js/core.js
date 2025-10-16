@@ -87,29 +87,23 @@ function renderCalendar(date = new Date()) {
   const grid = document.createElement("div");
   grid.className = "calendar-grid";
 
-  // Fill leading empty days
-  for (let i = 0; i < firstWeekday; i++) {
-    const empty = document.createElement("div");
-    grid.appendChild(empty);
-  }
-
-  // Fill days of month
   for (let day = 1; day <= daysInMonth; day++) {
     const dayElem = document.createElement("div");
     dayElem.className = "calendar-day";
     dayElem.textContent = day;
 
+    // ✅ Highlight today
     const today = new Date();
     if (
-      day === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear()
+        day === today.getDate() &&
+        month === today.getMonth() &&
+        year === today.getFullYear()
     ) {
-      dayElem.classList.add("today");
+        dayElem.classList.add("today");
     }
 
     grid.appendChild(dayElem);
-  }
+}
 
   calendar.appendChild(grid);
 
