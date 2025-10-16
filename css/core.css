@@ -35,19 +35,6 @@
   border: none;
 }
 
-/* Menu Button */
-.menu-btn {
-  position: fixed;
-  bottom: 8px;
-  left: 8px;
-  background: var(--muted-bg);
-  border: 1px solid #0b122048;
-  border-radius: 8px;
-  padding: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
 .menu-btn:hover {
   background: var(--card-bg);
 }
