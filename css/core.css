@@ -75,4 +75,10 @@
 
 .menu-list {
     list-style: none;
+    display: contents;
+}
+
+.menu-list button {
+    background-color: transparent;
+    border: none;
 }
