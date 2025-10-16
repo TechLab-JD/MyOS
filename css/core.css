@@ -38,7 +38,7 @@
 
 .popup {
   position: absolute;
-  bottom: 60px; /* adjust for your taskbar height */
+  bottom: 60px;
   right: 1rem;
   background: var(--muted-bg);
   color: var(--text);
@@ -181,4 +181,39 @@
   color: var(--text);
   font-size: 18px;
   cursor: pointer;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.calendar-day {
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.calendar-day.today {
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+}
+
+.calendar-day.other-month {
+  opacity: 0.3;
 }

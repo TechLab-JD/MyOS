@@ -49,3 +49,73 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+function renderCalendar(date = new Date()) {
+  const calendar = document.getElementById("calendar");
+  calendar.innerHTML = ""; // clear old content
+
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const firstWeekday = firstDay.getDay();
+  const daysInMonth = lastDay.getDate();
+
+  // Header
+  const header = document.createElement("div");
+  header.className = "calendar-header";
+  header.innerHTML = `
+    <button id="prevMonth">&lt;</button>
+    <span>${date.toLocaleString("default", { month: "long" })} ${year}</span>
+    <button id="nextMonth">&gt;</button>
+  `;
+  calendar.appendChild(header);
+
+  // Weekday labels
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const weekdaysRow = document.createElement("div");
+  weekdaysRow.className = "calendar-grid weekdays";
+  weekdaysRow.innerHTML = weekdays.map(d => `<strong>${d}</strong>`).join("");
+  calendar.appendChild(weekdaysRow);
+
+  // Calendar grid
+  const grid = document.createElement("div");
+  grid.className = "calendar-grid";
+
+  // Fill leading empty days
+  for (let i = 0; i < firstWeekday; i++) {
+    const empty = document.createElement("div");
+    grid.appendChild(empty);
+  }
+
+  // Fill days of month
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayElem = document.createElement("div");
+    dayElem.className = "calendar-day";
+    dayElem.textContent = day;
+
+    const today = new Date();
+    if (
+      day === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      dayElem.classList.add("today");
+    }
+
+    grid.appendChild(dayElem);
+  }
+
+  calendar.appendChild(grid);
+
+  // Navigation
+  document.getElementById("prevMonth").addEventListener("click", () => {
+    renderCalendar(new Date(year, month - 1, 1));
+  });
+  document.getElementById("nextMonth").addEventListener("click", () => {
+    renderCalendar(new Date(year, month + 1, 1));
+  });
+}
+
+renderCalendar();
