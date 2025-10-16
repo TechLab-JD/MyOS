@@ -1,7 +1,10 @@
 function updateTime() {
   const now = new Date();
   const formattedTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const formattedDate = now.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
+
   document.getElementById("currentTime").textContent = formattedTime;
+  document.getElementById("currentDate").textContent = formattedDate;
 }
 
 updateTime();
@@ -19,13 +22,12 @@ clockPopup.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
-// Optional: close popup if you click outside
+// Close popup if clicking outside
 document.addEventListener("click", (e) => {
   if (!clockPopup.contains(e.target) && !clockButton.contains(e.target)) {
     clockPopup.classList.add("hidden");
   }
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.getElementById('menu-btn');
