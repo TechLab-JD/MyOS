@@ -55,3 +55,11 @@
   right: 0;
   cursor: se-resize;
 }
+
+#TemplateApp .app-content.collapsed {
+  display: none;
+}
+
+#TemplateApp .resize-handle.collapsed {
+  display: none;
+}

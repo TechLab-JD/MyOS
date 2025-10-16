@@ -10,16 +10,13 @@
     app.style.display = 'none';
   });
 
-  // Minimize
+// Minimize / Expand
   minimizeBtn.addEventListener('click', () => {
     const content = app.querySelector('.app-content');
-    if (content.style.display === 'none') {
-      content.style.display = 'block';
-      resizeHandle.style.display = 'block';
-    } else {
-      content.style.display = 'none';
-      resizeHandle.style.display = 'none';
-    }
+
+    // Toggle collapsed class
+    content.classList.toggle('collapsed');
+    resizeHandle.classList.toggle('collapsed');
   });
 
   // Drag
