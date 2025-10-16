@@ -19,7 +19,7 @@
 /* --- Header --- */
 .app-window .app-header {
   height: 32px;
-  background-color: #2a2a2a;
+  background-color: var(--muted-bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
