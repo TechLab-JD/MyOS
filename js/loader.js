@@ -22,10 +22,11 @@ async function loadApps() {
         const appWindow = doc.querySelector('.app-window');
         if (!appWindow) return;
 
-        // import node into current document to ensure scripts/styles execute in correct context
-  const imported = document.importNode(appWindow, true);
-  imported.hidden = true;
-  appWindows.appendChild(imported);
+    // import node into current document to ensure scripts/styles execute in correct context
+    const imported = document.importNode(appWindow, true);
+    // hide via inline style so author CSS can't override it
+    imported.style.display = 'none';
+    appWindows.appendChild(imported);
 
         // inject CSS (only if not already present)
         if (app.css && !document.querySelector(`link[href="${app.css}"]`)) {
@@ -50,7 +51,7 @@ async function loadApps() {
 
         // show the app when its icon is clicked
         iconBtn.addEventListener('click', () => {
-          imported.hidden = false;
+          imported.style.display = 'flex';
           if (window.windowManager) {
             window.windowManager.setupWindow(imported);
             window.windowManager.bringToFront(imported);

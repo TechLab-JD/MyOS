@@ -60,8 +60,8 @@ class WindowManager {
         // Close functionality
         closeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // use hidden to hide the window (consistent with loader)
-            win.hidden = true;
+            // hide via inline style so app's author CSS doesn't override it
+            win.style.display = 'none';
         });
 
         // Window dragging
