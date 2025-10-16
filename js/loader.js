@@ -17,10 +17,12 @@ async function loadApps() {
     fetch(app.html)
       .then(res => res.text())
       .then(html => {
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = html;
-        wrapper.style.display = 'none';
-        appWindows.appendChild(wrapper);
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const appWindow = doc.querySelector('.app-window');
+        if (appWindow) {
+          appWindow.style.display = 'none';
+          appWindows.appendChild(appWindow);
 
         // 3️⃣ Load CSS
         const link = document.createElement('link');
