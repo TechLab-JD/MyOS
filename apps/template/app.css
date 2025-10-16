@@ -44,6 +44,7 @@
   padding: 8px;
   overflow: auto;
   background-color: var(--card-bg);
+  color: var(--text);
 }
 
 #TemplateApp .resize-handle {
