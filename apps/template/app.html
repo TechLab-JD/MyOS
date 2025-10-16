@@ -21,13 +21,13 @@
 
 <!-- Initialize Window Management -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Ensure windowManager is available
-    if (typeof WindowManager !== 'undefined') {
-        const manager = new WindowManager();
-        manager.setupWindow(document.getElementById('TemplateApp'));
-    } else {
-        console.error('WindowManager not loaded!');
-    }
-});
+  document.addEventListener('DOMContentLoaded', () => {
+      // Ensure windowManager is available
+      if (typeof WindowManager !== 'undefined') {
+          const manager = new WindowManager();
+          manager.setupWindow(document.getElementById('TemplateApp'));
+      } else {
+          console.error('WindowManager not loaded!');
+      }
+  });
 </script>

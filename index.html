@@ -91,6 +91,18 @@
         <script src="/MyOS/js/theme.js"></script>         
         <script src="/MyOS/js/core.js"></script>   
         <script defer src="/MyOS/js/loader.js"></script>
+        <script defer src="/MyOS/js/windowManager.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            if (typeof WindowManager !== 'undefined') {
+                const manager = new WindowManager();
+                document.querySelectorAll('.app-window').forEach(win => manager.setupWindow(win));
+            } else {
+                console.error('WindowManager not loaded!');
+            }
+            });
+        </script>
 
     </body>
 </html>
