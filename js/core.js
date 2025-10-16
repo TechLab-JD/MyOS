@@ -15,6 +15,10 @@ clockButton.addEventListener("click", () => {
   clockPopup.classList.toggle("hidden");
 });
 
+clockPopup.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
 // Optional: close popup if you click outside
 document.addEventListener("click", (e) => {
   if (!clockPopup.contains(e.target) && !clockButton.contains(e.target)) {
