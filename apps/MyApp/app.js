@@ -8,26 +8,15 @@
     const resizeHandle = app.querySelector('.resize-handle');
     const content = app.querySelector('.app-content');
 
-    // Store original height dynamically
-    const originalHeight = app.offsetHeight;
-
     // Close button
     closeBtn.addEventListener('click', () => {
       app.style.display = 'none';
     });
 
-    // Minimize button
+    // Minimize button (toggle only content and resize handle)
     minimizeBtn.addEventListener('click', () => {
-      const isCollapsed = content.classList.toggle('collapsed');
+      content.classList.toggle('collapsed');
       resizeHandle.classList.toggle('collapsed');
-
-      if (isCollapsed) {
-        // Keep the header visible
-        app.style.height = header.offsetHeight + 'px';
-      } else {
-        // Restore original height
-        app.style.height = originalHeight + 'px';
-      }
     });
 
     // Drag functionality (header always draggable)
@@ -52,11 +41,8 @@
     });
     document.addEventListener('mousemove', (e) => {
       if (!isResizing) return;
-      // Only allow resizing if not minimized
-      if (!content.classList.contains('collapsed')) {
-        app.style.width = e.clientX - app.offsetLeft + 'px';
-        app.style.height = e.clientY - app.offsetTop + 'px';
-      }
+      app.style.width = e.clientX - app.offsetLeft + 'px';
+      app.style.height = e.clientY - app.offsetTop + 'px';
     });
     document.addEventListener('mouseup', () => { isResizing = false; });
 
