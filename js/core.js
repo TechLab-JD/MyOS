@@ -72,11 +72,18 @@ function renderCalendar(date = new Date()) {
   const header = document.createElement("div");
   header.className = "calendar-header";
   header.innerHTML = `
-    <button id="prevMonth">&lt;</button>
+    <button id="prevMonth" class="month-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z"/>
+      </svg>
+    </button>
     <span>${date.toLocaleString("default", { month: "long" })} ${year}</span>
-    <button id="nextMonth">&gt;</button>
+    <button id="nextMonth" class="month-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708L9.293 7 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </button>
   `;
-  calendar.appendChild(header);
 
   // Weekday labels
   const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
