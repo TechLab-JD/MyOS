@@ -64,7 +64,7 @@ html, body {
 
 .theme-toggle button {
   background: transparent;
-  border: 1px solid #0b122048;
+  border: none;
   color: var(--text);
   cursor: pointer;
   font-size: 16px;
