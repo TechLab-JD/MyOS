@@ -1,5 +1,5 @@
 async function loadApps() {
-  const response = await fetch('apps.json');
+  const response = await fetch('/MyOS/data/modules.json');
   const apps = await response.json();
 
   const appList = document.getElementById('app-list');
