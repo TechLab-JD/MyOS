@@ -1,4 +1,4 @@
-(function(){
+document.addEventListener('DOMContentLoaded', () => {
   const apps = document.querySelectorAll('.app-window');
 
   apps.forEach(app => {
@@ -8,23 +8,29 @@
     const resizeHandle = app.querySelector('.resize-handle');
     const content = app.querySelector('.app-content');
 
-    // Close button
-    closeBtn.addEventListener('click', () => {
+    if (!header || !minimizeBtn || !content) return; // Skip invalid apps
+
+    // --- Close ---
+    closeBtn?.addEventListener('click', () => {
       app.style.display = 'none';
     });
 
-    // Minimize button (toggle only content and resize handle)
+    // --- Minimize / Restore ---
     minimizeBtn.addEventListener('click', () => {
-      content.classList.toggle('collapsed');
-      resizeHandle.classList.toggle('collapsed');
+      const collapsed = content.classList.toggle('collapsed');
+      resizeHandle?.classList.toggle('collapsed', collapsed);
+
+      // Toggle icon/text feedback (optional)
+      minimizeBtn.textContent = collapsed ? '🗗' : '🗕';
     });
 
-    // Drag functionality (header always draggable)
+    // --- Drag ---
     let isDragging = false, offsetX = 0, offsetY = 0;
     header.addEventListener('mousedown', (e) => {
       isDragging = true;
       offsetX = e.clientX - app.offsetLeft;
       offsetY = e.clientY - app.offsetTop;
+      app.style.zIndex = 9999; // Bring to front
     });
     document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
@@ -33,11 +39,11 @@
     });
     document.addEventListener('mouseup', () => { isDragging = false; });
 
-    // Resize functionality
+    // --- Resize ---
     let isResizing = false;
-    resizeHandle.addEventListener('mousedown', (e) => {
-      isResizing = true;
-      e.preventDefault();
+    resizeHandle?.addEventListener('mousedown', (e) => { 
+      isResizing = true; 
+      e.preventDefault(); 
     });
     document.addEventListener('mousemove', (e) => {
       if (!isResizing) return;
@@ -45,6 +51,5 @@
       app.style.height = e.clientY - app.offsetTop + 'px';
     });
     document.addEventListener('mouseup', () => { isResizing = false; });
-
   });
-})();
+});
