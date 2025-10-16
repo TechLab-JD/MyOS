@@ -1,5 +1,4 @@
-/* Scoped to #myApp */
-#TemplateApp {
+.app-window {
   position: absolute;
   top: 100px;
   left: 100px;
@@ -15,7 +14,7 @@
   z-index: 100;
 }
 
-#TemplateApp .app-header {
+.app-window .app-header {
   height: 32px;
   background-color: #2a2a2a;
   display: flex;
@@ -26,28 +25,15 @@
   user-select: none;
 }
 
-#TemplateApp .app-title { font-weight: bold; font-size: 0.9rem; }
-
-#TemplateApp .app-controls button {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  font-size: 16px;
-  line-height: 0;
-}
-
-#TemplateApp .app-content {
+.app-window .app-content {
   flex: 1;
   padding: 8px;
   overflow: auto;
   background-color: var(--card-bg);
-  color: var(--text);
+  color: var(--text);  
 }
 
-#TemplateApp .resize-handle {
+.app-window .resize-handle {
   width: 16px;
   height: 16px;
   position: absolute;
@@ -56,6 +42,7 @@
   cursor: se-resize;
 }
 
+/* Collapsed state */
 .app-window .app-content.collapsed {
   display: none;
 }
