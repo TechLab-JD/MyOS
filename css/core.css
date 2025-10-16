@@ -32,4 +32,5 @@
   background: transparent;
   display: grid;
   justify-content: center;
+  border: none;
 }
