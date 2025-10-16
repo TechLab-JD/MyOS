@@ -14,3 +14,31 @@ updateTime();
 
 // Update the time every second (1000 milliseconds)
 setInterval(updateTime, 1000);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('menu-btn');
+  const startMenu = document.getElementById('start-menu');
+
+  if (!menuBtn || !startMenu) return;
+
+  // Toggle menu visibility
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent closing immediately
+    startMenu.classList.toggle('active');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !startMenu.contains(e.target)) {
+      startMenu.classList.remove('active');
+    }
+  });
+
+  // Optional: ESC key closes the menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      startMenu.classList.remove('active');
+    }
+  });
+});

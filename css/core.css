@@ -34,3 +34,54 @@
   justify-content: center;
   border: none;
 }
+
+/* Menu Button */
+.menu-btn {
+  position: fixed;
+  bottom: 8px;
+  left: 8px;
+  background: var(--muted-bg);
+  border: 1px solid #0b122048;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: var(--card-bg);
+}
+
+/* Start Menu Panel */
+.start-menu {
+  position: fixed;
+  bottom: 56px; /* sits above the button */
+  left: 8px;
+  width: 260px;
+  background: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  padding: 1rem;
+  display: none;
+  animation: slideUp 0.2s ease;
+  z-index: 100;
+}
+
+/* Inner Content */
+.start-menu .menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Visible State */
+.start-menu.active {
+  display: block;
+}
