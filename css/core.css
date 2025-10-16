@@ -29,6 +29,6 @@
 .menu-icon {
   width: 48px;
   height: 48px;
-  background-color: transparent;
-  color: var(--text);
+  background: none;
+  filter: brightness(0) saturate(100%) var(--menu-icon-filter, invert(var(--is-dark, 0)));
 }
