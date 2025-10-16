@@ -1,19 +1,19 @@
 .systembar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 48px;
   padding: 0 1rem;
   background: var(--muted-bg);
   color: var(--text);
 }
 .head-title {
-  margin: 0; 
-  align-self: left;
+  margin: 0;
 }
 
 .taskbar {
   display: flex;
-  justify-content: flex-end; /* push clock to right */
+  justify-content: flex-end; 
   align-items: center;
   height: 48px;
   padding: 0 1rem;
