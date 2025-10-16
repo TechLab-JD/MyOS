@@ -1,5 +1,4 @@
 (function(){
-  // Select all app windows
   const apps = document.querySelectorAll('.app-window');
 
   apps.forEach(app => {
@@ -9,25 +8,22 @@
     const resizeHandle = app.querySelector('.resize-handle');
     const content = app.querySelector('.app-content');
 
+    // Store original height dynamically
+    const originalHeight = app.offsetHeight;
+
     // Close button
     closeBtn.addEventListener('click', () => {
       app.style.display = 'none';
     });
 
-  minimizeBtn.addEventListener('click', () => {
-    const content = app.querySelector('.app-content');
-    const resizeHandle = app.querySelector('.resize-handle');
+    // Minimize button
+    minimizeBtn.addEventListener('click', () => {
+      const isCollapsed = content.classList.toggle('collapsed');
+      resizeHandle.classList.toggle('collapsed');
 
-    const isCollapsed = content.classList.toggle('collapsed');
-    resizeHandle.classList.toggle('collapsed');
-
-    // Shrink window height to just the header when minimized
-    if (isCollapsed) {
-      app.style.height = header.offsetHeight + 'px';
-    } else {
-      app.style.height = '300px'; // original height
-    }
-  });
+      // Shrink window height to just the header when minimized
+      app.style.height = isCollapsed ? header.offsetHeight + 'px' : originalHeight + 'px';
+    });
 
     // Drag functionality
     let isDragging = false, offsetX = 0, offsetY = 0;
@@ -51,8 +47,11 @@
     });
     document.addEventListener('mousemove', (e) => {
       if (!isResizing) return;
-      app.style.width = e.clientX - app.offsetLeft + 'px';
-      app.style.height = e.clientY - app.offsetTop + 'px';
+      // Only resize if not minimized
+      if (!content.classList.contains('collapsed')) {
+        app.style.width = e.clientX - app.offsetLeft + 'px';
+        app.style.height = e.clientY - app.offsetTop + 'px';
+      }
     });
     document.addEventListener('mouseup', () => { isResizing = false; });
 
