@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const apps = document.querySelectorAll('.app-window');
+  let highestZIndex = 100;
+
+  // Function to bring window to front
+  function bringToFront(app) {
+    highestZIndex += 1;
+    app.style.zIndex = highestZIndex;
+  }
 
   apps.forEach(app => {
     const header = app.querySelector('.app-header');
@@ -17,27 +24,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Minimize / Restore ---
     minimizeBtn.addEventListener('click', () => {
-      const collapsed = content.classList.toggle('collapsed');
-      resizeHandle?.classList.toggle('collapsed', collapsed);
+      const isMinimized = app.classList.toggle('minimized');
+      // Store current height before minimizing
+      if (!isMinimized && !app.dataset.prevHeight) {
+        app.style.height = app.dataset.prevHeight || '300px';
+      }
+      // Toggle icon/text feedback
+      minimizeBtn.textContent = isMinimized ? '🗗' : '🗕';
+    });
 
-      // Toggle icon/text feedback (optional)
-      minimizeBtn.textContent = collapsed ? '🗗' : '🗕';
+    // --- Bring to front on any interaction ---
+    app.addEventListener('mousedown', () => {
+      bringToFront(app);
     });
 
     // --- Drag ---
     let isDragging = false, offsetX = 0, offsetY = 0;
     header.addEventListener('mousedown', (e) => {
+      if (e.target.closest('.app-controls')) return; // Don't drag if clicking controls
       isDragging = true;
       offsetX = e.clientX - app.offsetLeft;
       offsetY = e.clientY - app.offsetTop;
-      app.style.zIndex = 9999; // Bring to front
+      bringToFront(app);
     });
-    document.addEventListener('mousemove', (e) => {
+    const onMouseMove = (e) => {
       if (!isDragging) return;
-      app.style.left = e.clientX - offsetX + 'px';
-      app.style.top = e.clientY - offsetY + 'px';
+      const newLeft = e.clientX - offsetX;
+      const newTop = e.clientY - offsetY;
+      
+      // Keep window within viewport bounds
+      const maxX = window.innerWidth - app.offsetWidth;
+      const maxY = window.innerHeight - app.offsetHeight;
+      
+      app.style.left = Math.min(Math.max(0, newLeft), maxX) + 'px';
+      app.style.top = Math.min(Math.max(0, newTop), maxY) + 'px';
+    };
+
+    const onMouseUp = () => {
+      isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    header.addEventListener('mousedown', () => {
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
     });
-    document.addEventListener('mouseup', () => { isDragging = false; });
 
     // --- Resize ---
     let isResizing = false;

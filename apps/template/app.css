@@ -67,14 +67,15 @@
 }
 
 /* --- Collapsed / Minimized State --- */
-.app-window .app-content.collapsed {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0;
+.app-window.minimized {
+  height: 32px !important; /* Force header height only */
 }
 
-.app-window .resize-handle.collapsed {
+.app-window.minimized .app-content {
+  display: none;
+}
+
+.app-window.minimized .resize-handle {
   display: none;
 }
 
