@@ -25,12 +25,28 @@
   user-select: none;
 }
 
+.app-window .app-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.app-window .app-controls button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 0;
+}
+
 .app-window .app-content {
   flex: 1;
   padding: 8px;
   overflow: auto;
   background-color: var(--card-bg);
-  color: var(--text);  
+  color: var(--text);
 }
 
 .app-window .resize-handle {

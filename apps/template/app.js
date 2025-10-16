@@ -14,11 +14,20 @@
       app.style.display = 'none';
     });
 
-    // Minimize button
-    minimizeBtn.addEventListener('click', () => {
-      content.classList.toggle('collapsed');
-      resizeHandle.classList.toggle('collapsed');
-    });
+  minimizeBtn.addEventListener('click', () => {
+    const content = app.querySelector('.app-content');
+    const resizeHandle = app.querySelector('.resize-handle');
+
+    const isCollapsed = content.classList.toggle('collapsed');
+    resizeHandle.classList.toggle('collapsed');
+
+    // Shrink window height to just the header when minimized
+    if (isCollapsed) {
+      app.style.height = header.offsetHeight + 'px';
+    } else {
+      app.style.height = '300px'; // original height
+    }
+  });
 
     // Drag functionality
     let isDragging = false, offsetX = 0, offsetY = 0;
