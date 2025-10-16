@@ -23,9 +23,9 @@ async function loadApps() {
         if (!appWindow) return;
 
         // import node into current document to ensure scripts/styles execute in correct context
-        const imported = document.importNode(appWindow, true);
-        imported.style.display = 'none';
-        appWindows.appendChild(imported);
+  const imported = document.importNode(appWindow, true);
+  imported.hidden = true;
+  appWindows.appendChild(imported);
 
         // inject CSS (only if not already present)
         if (app.css && !document.querySelector(`link[href="${app.css}"]`)) {
@@ -43,14 +43,14 @@ async function loadApps() {
           document.body.appendChild(script);
         }
 
-        // register with windowManager if available
+        // register with windowManager if available (defer to allow app scripts to run)
         if (window.windowManager) {
-          window.windowManager.setupWindow(imported);
+          Promise.resolve().then(() => window.windowManager.setupWindow(imported));
         }
 
         // show the app when its icon is clicked
         iconBtn.addEventListener('click', () => {
-          imported.style.display = 'flex';
+          imported.hidden = false;
           if (window.windowManager) {
             window.windowManager.setupWindow(imported);
             window.windowManager.bringToFront(imported);
