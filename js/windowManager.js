@@ -1,4 +1,5 @@
-class WindowManager {
+// Make WindowManager available globally
+window.WindowManager = class WindowManager {
     constructor() {
         this.highestZIndex = 100;
         this.init();
