@@ -5,14 +5,14 @@
   width: 400px;
   height: 300px;
   background-color: var(--card-bg);
-  color: #fff;
+  color: var(--text);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 100;
-  transition: height 0.3s ease;
+  transition: height 0.3s ease, width 0.3s ease;
 }
 
 /* --- Header --- */
@@ -66,17 +66,27 @@
   cursor: se-resize;
 }
 
-/* --- Collapsed / Minimized State --- */
+/* --- Minimized State --- */
 .app-window.minimized {
   height: 32px !important; /* Force header height only */
+  width: 200px !important; /* Smaller width when minimized */
 }
 
 .app-window.minimized .app-content {
-  display: none;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .app-window.minimized .resize-handle {
   display: none;
+}
+
+/* Transition for content */
+.app-content {
+  transition: opacity 0.3s ease, height 0.3s ease;
+  opacity: 1;
+  height: calc(100% - 32px); /* Full height minus header */
 }
 
 /* Optional: subtle hover for controls */
