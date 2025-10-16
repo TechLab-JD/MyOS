@@ -1,10 +1,10 @@
 [
   {
-    "id": "temp",
-    "name": "Template App",
-    "icon": "/MyOS/apps/template/icon.svg",
-    "html": "/MyOS/apps/template/app.html",
-    "css": "/MyOS/apps/template/app.css",
-    "js": "/MyOS/apps/template/app.js"
+    "id": "myapp",
+    "name": "MyApp",
+    "icon": "/MyOS/apps/MyApp/icon.svg",
+    "html": "/MyOS/apps/MyApp/app.html",
+    "css": "/MyOS/apps/MyApp/app.css",
+    "js": "/MyOS/apps/MyApp/app.js"
   }
 ]
