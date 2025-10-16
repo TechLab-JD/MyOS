@@ -1,0 +1,9 @@
+.head-title {
+    display: flex;
+    align-self: left;    
+}
+
+.time {
+    display: flex;
+    align-self: right;
+}
