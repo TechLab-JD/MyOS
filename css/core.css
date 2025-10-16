@@ -1,15 +1,14 @@
 .systembar {
   display: flex;
-  justify-content: flex-end; /* push everything to the right */
   align-items: center;
-  gap: 1rem; /* spacing between title and toggle */
   height: 48px;
   padding: 0 1rem;
   background: var(--muted-bg);
   color: var(--text);
 }
 .head-title {
-  margin: 0; /* remove default h3 margin */
+  margin: 0; 
+  align-self: left;
 }
 
 .taskbar {
