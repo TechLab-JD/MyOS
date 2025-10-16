@@ -82,3 +82,8 @@
     background-color: transparent;
     border: none;
 }
+
+.menu-list button:hover {
+    background-color: #222222;
+    border: black 2px;
+}
