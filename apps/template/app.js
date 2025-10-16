@@ -1,5 +1,5 @@
 (function(){
-  const app = document.getElementById('TemplateApp');
+  const app = document.getElementById('temp');
   const header = app.querySelector('.app-header');
   const closeBtn = app.querySelector('.close-btn');
   const minimizeBtn = app.querySelector('.minimize-btn');

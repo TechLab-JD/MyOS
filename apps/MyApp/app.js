@@ -1,5 +1,5 @@
 (function(){
-  const app = document.getElementById('MyApp');
+  const app = document.getElementById('myapp');
   const header = app.querySelector('.app-header');
   const closeBtn = app.querySelector('.close-btn');
   const minimizeBtn = app.querySelector('.minimize-btn');
