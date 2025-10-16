@@ -35,7 +35,17 @@ function applyTheme(mode) {
   const html = document.documentElement;
   html.setAttribute('data-theme', mode);
   const btn = document.querySelector('.theme-toggle button');
+  const icon = document.getElementById('theme-icon');
   if (btn) btn.setAttribute('aria-pressed', mode === 'dark');
+  if (icon) {
+    if (mode === 'dark') {
+      icon.textContent = '🌙';
+      icon.className = 'icon icon-moon';
+    } else {
+      icon.textContent = '☀️';
+      icon.className = 'icon icon-sun';
+    }
+  }
 }
 
 // Init on DOM ready
