@@ -1,0 +1,10 @@
+[
+  {
+    "id": "temp",
+    "name": "Template App",
+    "icon": "apps/template/icon.svg",
+    "html": "app/template/app.html",
+    "css": "app/template/app.css",
+    "js": "app/template/app.js"
+  }
+]

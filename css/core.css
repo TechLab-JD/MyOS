@@ -257,3 +257,21 @@
   background-color: var(--accent, #4ea1f3); 
   transform: scale(1.1); 
 }
+
+
+#app-list {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+.app-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.app-icon img {
+  width: 32px;
+  height: 32px;
+}
