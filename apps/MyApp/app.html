@@ -18,16 +18,3 @@
 <link rel="stylesheet" href="/MyOS/apps/MyApp/app.css">
 <script src="/MyOS/js/windowManager.js" defer></script>
 <script src="/MyOS/apps/MyApp/app.js" defer></script>
-
-<!-- Initialize Window Management -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Ensure windowManager is available
-    if (typeof WindowManager !== 'undefined') {
-        const manager = new WindowManager();
-        manager.setupWindow(document.getElementById('MyApp'));
-    } else {
-        console.error('WindowManager not loaded!');
-    }
-});
-</script>
