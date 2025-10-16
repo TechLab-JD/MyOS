@@ -56,10 +56,10 @@
   cursor: se-resize;
 }
 
-#TemplateApp .app-content.collapsed {
+.app-window .app-content.collapsed {
   display: none;
 }
 
-#TemplateApp .resize-handle.collapsed {
+.app-window .resize-handle.collapsed {
   display: none;
 }

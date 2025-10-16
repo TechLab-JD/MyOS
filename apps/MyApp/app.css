@@ -56,10 +56,10 @@
   cursor: se-resize;
 }
 
-#MyApp .app-content.collapsed {
+.app-window .app-content.collapsed {
   display: none;
 }
 
-#MyApp .resize-handle.collapsed {
+.app-window .resize-handle.collapsed {
   display: none;
 }
