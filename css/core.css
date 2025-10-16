@@ -72,3 +72,7 @@
 .start-menu.active {
   display: block;
 }
+
+.menu-content {
+    list-style: none;
+}
