@@ -21,11 +21,16 @@
       const isCollapsed = content.classList.toggle('collapsed');
       resizeHandle.classList.toggle('collapsed');
 
-      // Shrink window height to just the header when minimized
-      app.style.height = isCollapsed ? header.offsetHeight + 'px' : originalHeight + 'px';
+      if (isCollapsed) {
+        // Keep the header visible
+        app.style.height = header.offsetHeight + 'px';
+      } else {
+        // Restore original height
+        app.style.height = originalHeight + 'px';
+      }
     });
 
-    // Drag functionality
+    // Drag functionality (header always draggable)
     let isDragging = false, offsetX = 0, offsetY = 0;
     header.addEventListener('mousedown', (e) => {
       isDragging = true;
@@ -47,7 +52,7 @@
     });
     document.addEventListener('mousemove', (e) => {
       if (!isResizing) return;
-      // Only resize if not minimized
+      // Only allow resizing if not minimized
       if (!content.classList.contains('collapsed')) {
         app.style.width = e.clientX - app.offsetLeft + 'px';
         app.style.height = e.clientY - app.offsetTop + 'px';
