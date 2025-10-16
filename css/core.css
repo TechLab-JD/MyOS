@@ -27,6 +27,35 @@
   color: var(--text);
 }
 
+.time button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popup {
+  position: absolute;
+  bottom: 60px; /* adjust for your taskbar height */
+  right: 1rem;
+  background: var(--muted-bg);
+  color: var(--text);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  width: 240px;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
 .menu-icon, .menu-btn {
   width: 48px;
   height: 48px;
