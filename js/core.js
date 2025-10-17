@@ -16,6 +16,7 @@ const clockPopup = document.getElementById("clockPopup");
 
 clockButton.addEventListener("click", () => {
   clockPopup.classList.toggle("hidden");
+});
 
 clockPopup.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -29,12 +30,8 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Only select the footer menu button for the start menu
-  const menuBtn = document.querySelector('footer .menu-btn#menu-btn');
+  const menuBtn = document.getElementById('menu-btn');
   const startMenu = document.getElementById('start-menu');
-  const appListWindow = document.getElementById('AppListWindow');
-  const appListClose = appListWindow?.querySelector('.close-btn');
-  const appsMenuBtn = Array.from(document.querySelectorAll('.menu-list button')).find(btn => btn.textContent.includes('Apps'));
 
   if (!menuBtn || !startMenu) return;
 
@@ -51,24 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Show App List window when Apps button is clicked in start menu
-  if (appsMenuBtn && appListWindow) {
-    appsMenuBtn.addEventListener('click', () => {
-      appListWindow.style.display = 'flex';
-      if (window.windowManager) {
-        window.windowManager.setupWindow(appListWindow);
-        window.windowManager.bringToFront(appListWindow);
-      }
-      startMenu.classList.remove('active');
-    });
-  }
-  // Close App List window
-  if (appListClose && appListWindow) {
-    appListClose.addEventListener('click', () => {
-      appListWindow.style.display = 'none';
-    });
-  }
-});
   // Optional: ESC key closes the menu
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
