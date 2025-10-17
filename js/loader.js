@@ -4,10 +4,6 @@ async function loadApps() {
 
   const appList = document.getElementById('app-list');
   const appWindows = document.getElementById('app-windows');
-  if (!appList || !appWindows) {
-    console.error('App loader error: #app-list or #app-windows not found in DOM.');
-    return;
-  }
 
   apps.forEach(app => {
     // add icon to the app list
@@ -55,6 +51,7 @@ async function loadApps() {
 
         // show the app when its icon is clicked
         iconBtn.addEventListener('click', () => {
+          imported.hidden = false;
           imported.style.display = 'flex';
           if (window.windowManager) {
             window.windowManager.setupWindow(imported);
