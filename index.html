@@ -33,7 +33,18 @@
         <div class="homescreen">
             <div id="app-windows"></div>
 
-            <div id="app-list" class="app-list"></div>
+            <div class="app-window" id="AppListWindow" style="display:none; top:160px; left:160px; width:340px; height:400px; z-index:110;">
+                <div class="app-header">
+                    <span class="app-title">All Apps</span>
+                    <div class="app-controls">
+                        <button class="close-btn" title="Close">×</button>
+                    </div>
+                </div>
+                <div class="app-content" style="overflow:auto;">
+                    <div id="app-list" class="app-list"></div>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
         </div>
 
     <!-- ===============================

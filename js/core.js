@@ -32,6 +32,9 @@ document.addEventListener("click", (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.getElementById('menu-btn');
   const startMenu = document.getElementById('start-menu');
+  const appListWindow = document.getElementById('AppListWindow');
+  const appListClose = appListWindow?.querySelector('.close-btn');
+  const appsMenuBtn = document.querySelector('.menu-list button:contains("Apps")') || Array.from(document.querySelectorAll('.menu-list button')).find(btn => btn.textContent.includes('Apps'));
 
   if (!menuBtn || !startMenu) return;
 
@@ -47,6 +50,24 @@ document.addEventListener('DOMContentLoaded', () => {
       startMenu.classList.remove('active');
     }
   });
+
+  // Show App List window when Apps button is clicked in start menu
+  if (appsMenuBtn && appListWindow) {
+    appsMenuBtn.addEventListener('click', () => {
+      appListWindow.style.display = 'flex';
+      if (window.windowManager) {
+        window.windowManager.setupWindow(appListWindow);
+        window.windowManager.bringToFront(appListWindow);
+      }
+      startMenu.classList.remove('active');
+    });
+  }
+  // Close App List window
+  if (appListClose && appListWindow) {
+    appListClose.addEventListener('click', () => {
+      appListWindow.style.display = 'none';
+    });
+  }
 
   // Optional: ESC key closes the menu
   document.addEventListener('keydown', (e) => {
