@@ -134,29 +134,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const appsButton = document.querySelector(".menu-list button:nth-child(3)"); // 💻 Apps
-  const appWindowsContainer = document.getElementById("app-windows");
-  const appList = document.getElementById("app-list");
-  const manager = window.windowManager;
+    const appsButton = document.querySelector(".menu-list button:nth-child(3)"); // 💻 Apps
+    const appWindowsContainer = document.getElementById("app-windows");
+    const appList = document.getElementById("app-list");
+    const manager = window.windowManager;
 
-  appsButton.addEventListener("click", () => {
-    // Check if window already exists
-    let existingWindow = document.getElementById("apps-window");
-    if (existingWindow) {
-      existingWindow.style.display =
-        existingWindow.style.display === "none" ? "flex" : "none";
-      manager.bringToFront(existingWindow);
-      return;
+    if (appsButton) {
+        appsButton.addEventListener("click", () => {
+            // Check if window already exists
+            let existingWindow = document.getElementById("apps-window");
+            if (existingWindow) {
+                existingWindow.style.display =
+                    existingWindow.style.display === "none" ? "flex" : "none";
+                manager.bringToFront(existingWindow);
+                return;
+            }
+
+            // --- Create new App Window ---
+            const win = document.createElement("div");
+            win.className = "app-window";
+            win.id = "apps-window";
+            win.style.left = "150px";
+            win.style.top = "100px";
+            win.style.width = "500px";
+            win.style.height = "400px";
+            // Header
+            const header = document.createElement("div");
+            header.className = "app-header";
+            header.innerHTML = `
+                <div class="app-title">💻 Applications</div>
+                <div class="app-controls">
+                    <button class="minimize-btn">—</button>
+                    <button class="close-btn">✖</button>
+                </div>
+            `;
+
+            // Content
+            const content = document.createElement("div");
+            content.className = "app-content";
+            content.appendChild(appList);
+
+            // Resize handle (optional)
+            const resizeHandle = document.createElement("div");
+            resizeHandle.className = "resize-handle";
+
+            // Assemble window
+            win.appendChild(header);
+            win.appendChild(content);
+            win.appendChild(resizeHandle);
+
+            appWindowsContainer.appendChild(win);
+
+            // Initialize this window in WindowManager
+            manager.setupWindow(win);
+
+            // Close restores app list to container
+            win.querySelector(".close-btn").addEventListener("click", () => {
+                document.body.appendChild(appList);
+            });
+        });
     }
-
-    // --- Create new App Window ---
-    const win = document.createElement("div");
-    win.className = "app-window";
-    win.id = "apps-window";
-    win.style.left = "150px";
-    win.style.top = "100px";
-    win.style.width = "500px";
-    win.style.height = "400px";
 
     // Header
     const header = document.createElement("div");
@@ -192,5 +229,4 @@ document.addEventListener("DOMContentLoaded", () => {
     win.querySelector(".close-btn").addEventListener("click", () => {
       document.body.appendChild(appList);
     });
-  });
-});
+    });

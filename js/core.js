@@ -16,7 +16,6 @@ const clockPopup = document.getElementById("clockPopup");
 
 clockButton.addEventListener("click", () => {
   clockPopup.classList.toggle("hidden");
-});
 
 clockPopup.addEventListener("click", (e) => {
   e.stopPropagation();
