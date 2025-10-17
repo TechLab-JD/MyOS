@@ -39,13 +39,18 @@ async function loadApps() {
           document.head.appendChild(link);
         }
 
-        // ====== 5️⃣ Inject JS ======
+        // ====== 5️⃣ Inject JS with base path ======
         if (app.js && !document.querySelector(`script[src="${app.js}"]`)) {
           const script = document.createElement('script');
-          script.src = app.js;
-          script.defer = true;
+          // Pass the app base path as a global variable
+          script.textContent = `window.APP_BASE = "${app.js.replace(/app\.js$/, '')}";`;
           document.body.appendChild(script);
-        }
+
+          const scriptModule = document.createElement('script');
+          scriptModule.src = app.js;
+          scriptModule.type = 'module'; // ensure ES module context if needed
+          document.body.appendChild(scriptModule);
+}
 
         // ====== 6️⃣ Setup window with WindowManager ======
         if (window.windowManager) {
