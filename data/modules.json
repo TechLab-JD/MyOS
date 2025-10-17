@@ -10,9 +10,9 @@
   {
     "id": "gallery",
     "name": "Gallery App",
-    "icon": "/MyOS/apps/Gallery-App/icon.svg",
-    "html": "/MyOS/apps/Gallery-App/app.html",
-    "css": "/MyOS/apps/Gallery-App/app.css",
-    "js": "/MyOS/apps/Gallery-App/app.js"
+    "icon": "/MyOS/apps/apps/MyOS-Gallery-App/icon.svg",
+    "html": "/MyOS/apps/apps/MyOS-Gallery-App/app.html",
+    "css": "/MyOS/apps/apps/MyOS-Gallery-App/app.css",
+    "js": "/MyOS/apps/apps/MyOS-Gallery-App/app.js"
   }
 ]
