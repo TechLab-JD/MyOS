@@ -1,3 +1,4 @@
+// loader.js
 async function loadApps() {
   const response = await fetch('/MyOS/data/modules.json');
   const apps = await response.json();
@@ -6,14 +7,15 @@ async function loadApps() {
   const appWindows = document.getElementById('app-windows');
 
   apps.forEach(app => {
-    // add icon to the app list
+    // ====== 1️⃣ Create app icon in app list ======
     const iconBtn = document.createElement('button');
     iconBtn.className = 'app-icon';
     iconBtn.title = app.name;
+    iconBtn.dataset.app = app.id; // important for apps panel
     iconBtn.innerHTML = `<img src="${app.icon}" alt="${app.name}" />`;
     appList.appendChild(iconBtn);
 
-    // fetch app HTML and import the .app-window node
+    // ====== 2️⃣ Fetch app HTML ======
     fetch(app.html)
       .then(res => res.text())
       .then(html => {
@@ -22,13 +24,14 @@ async function loadApps() {
         const appWindow = doc.querySelector('.app-window');
         if (!appWindow) return;
 
-    // import node into current document to ensure scripts/styles execute in correct context
-    const imported = document.importNode(appWindow, true);
-    // hide via inline style so author CSS can't override it
-    imported.style.display = 'none';
-    appWindows.appendChild(imported);
+        // ====== 3️⃣ Import app window into DOM ======
+        const imported = document.importNode(appWindow, true);
+        imported.style.display = 'none';          // hide initially
+        imported.id = app.id;                      // ensure launchApp() can find it
+        imported.dataset.app = app.id;             // optional but useful
+        appWindows.appendChild(imported);
 
-        // inject CSS (only if not already present)
+        // ====== 4️⃣ Inject CSS ======
         if (app.css && !document.querySelector(`link[href="${app.css}"]`)) {
           const link = document.createElement('link');
           link.rel = 'stylesheet';
@@ -36,7 +39,7 @@ async function loadApps() {
           document.head.appendChild(link);
         }
 
-        // inject JS (only if not already present)
+        // ====== 5️⃣ Inject JS ======
         if (app.js && !document.querySelector(`script[src="${app.js}"]`)) {
           const script = document.createElement('script');
           script.src = app.js;
@@ -44,12 +47,12 @@ async function loadApps() {
           document.body.appendChild(script);
         }
 
-        // register with windowManager if available (defer to allow app scripts to run)
+        // ====== 6️⃣ Setup window with WindowManager ======
         if (window.windowManager) {
           Promise.resolve().then(() => window.windowManager.setupWindow(imported));
         }
 
-        // show the app when its icon is clicked
+        // ====== 7️⃣ Show app when icon is clicked ======
         iconBtn.addEventListener('click', () => {
           imported.hidden = false;
           imported.style.display = 'flex';
@@ -63,4 +66,5 @@ async function loadApps() {
   });
 }
 
+// Initialize apps after DOM is ready
 document.addEventListener('DOMContentLoaded', loadApps);
