@@ -129,3 +129,73 @@ function renderCalendar(date = new Date()) {
 }
 
 renderCalendar();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const appsButton = document.getElementById("appsButton");
+  if (appsButton) {
+    appsButton.addEventListener("click", openAppsPanel);
+  }
+});
+
+function openAppsPanel() {
+  const existing = document.getElementById("apps-window");
+
+  if (existing) {
+    // Toggle if it already exists
+    existing.style.display = existing.style.display === "none" ? "flex" : "none";
+    window.windowManager.bringToFront(existing);
+    return;
+  }
+
+  // Create a new "Apps" window container
+  const win = document.createElement("div");
+  win.className = "app-window";
+  win.id = "apps-window";
+  win.style.left = "250px";
+  win.style.top = "150px";
+  win.style.width = "600px";
+  win.style.height = "400px";
+
+  win.innerHTML = `
+    <div class="app-header">
+      <div class="app-title">💻 Applications</div>
+      <div class="app-controls">
+        <button class="minimize-btn">—</button>
+        <button class="close-btn">✖</button>
+      </div>
+    </div>
+    <div class="app-content">
+      <div id="apps-grid" class="apps-grid">
+        <p>Loading applications...</p>
+      </div>
+    </div>
+    <div class="resize-handle"></div>
+  `;
+
+  document.getElementById("app-windows").appendChild(win);
+  window.windowManager.setupWindow(win);
+
+  // ✅ Load app icons dynamically from the #app-list (which loader.js populates)
+  const appList = document.getElementById("app-list");
+  const appsGrid = win.querySelector("#apps-grid");
+
+  if (!appList || !appsGrid) return;
+
+  // Wait a tick in case loader.js is still populating
+  setTimeout(() => {
+    appsGrid.innerHTML = ""; // clear "Loading..."
+    const icons = appList.querySelectorAll(".app-icon");
+
+    if (icons.length === 0) {
+      appsGrid.innerHTML = "<p>No apps found.</p>";
+      return;
+    }
+
+    icons.forEach(icon => {
+      const clone = icon.cloneNode(true);
+      clone.classList.add("apps-grid-item");
+      appsGrid.appendChild(clone);
+    });
+  }, 300); // small delay to allow loader.js to finish
+}

@@ -322,20 +322,21 @@
   display: none;
 }
 
-.app-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 16px;
+  padding: 12px;
+  justify-items: center;
+  align-items: center;
 }
 
-.app-list .app {
-  width: 80px;
-  height: 80px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  cursor: pointer;
+.apps-grid-item img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s;
+}
+
+.apps-grid-item:hover img {
+  transform: scale(1.1);
 }
