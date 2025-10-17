@@ -1,10 +1,18 @@
 [
   {
     "id": "temp",
-    "name": "TemplateApp",
+    "name": "Template App",
     "icon": "/MyOS/apps/template/icon.svg",
     "html": "/MyOS/apps/template/app.html",
     "css": "/MyOS/apps/template/app.css",
     "js": "/MyOS/apps/template/app.js"
+  },
+  {
+    "id": "gallery",
+    "name": "Gallery App",
+    "icon": "/MyOS/apps/Gallery-App/icon.svg",
+    "html": "/MyOS/apps/Gallery-App/app.html",
+    "css": "/MyOS/apps/Gallery-App/app.css",
+    "js": "/MyOS/apps/Gallery-App/app.js"
   }
 ]
