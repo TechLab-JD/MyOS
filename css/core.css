@@ -59,6 +59,12 @@
   background: var(--card-bg);
 }
 
+.menu-btn {
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+}
+
 /* Start Menu Panel */
 .start-menu {
   position: fixed;
