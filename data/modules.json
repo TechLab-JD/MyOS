@@ -1,6 +1,6 @@
 [
   {
-    "id": "temp",
+    "id": "TemplateApp",
     "name": "Template App",
     "icon": "/MyOS/apps/template/icon.svg",
     "html": "/MyOS/apps/template/app.html",
@@ -8,7 +8,7 @@
     "js": "/MyOS/apps/template/app.js"
   },
   {
-    "id": "gallery",
+    "id": "GalleryApp",
     "name": "Gallery App",
     "icon": "/MyOS/apps/MyOS-Gallery-App/icon.svg",
     "html": "/MyOS/apps/MyOS-Gallery-App/app.html",
