@@ -30,11 +30,12 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('menu-btn');
+  // Only select the footer menu button for the start menu
+  const menuBtn = document.querySelector('footer .menu-btn#menu-btn');
   const startMenu = document.getElementById('start-menu');
   const appListWindow = document.getElementById('AppListWindow');
   const appListClose = appListWindow?.querySelector('.close-btn');
-  const appsMenuBtn = document.querySelector('.menu-list button:contains("Apps")') || Array.from(document.querySelectorAll('.menu-list button')).find(btn => btn.textContent.includes('Apps'));
+  const appsMenuBtn = Array.from(document.querySelectorAll('.menu-list button')).find(btn => btn.textContent.includes('Apps'));
 
   if (!menuBtn || !startMenu) return;
 
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       appListWindow.style.display = 'none';
     });
   }
-
+});
   // Optional: ESC key closes the menu
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
