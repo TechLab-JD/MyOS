@@ -195,38 +195,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Header
-    const header = document.createElement("div");
-    header.className = "app-header";
-    header.innerHTML = `
-      <div class="app-title">💻 Applications</div>
-      <div class="app-controls">
-        <button class="minimize-btn">—</button>
-        <button class="close-btn">✖</button>
-      </div>
-    `;
-
-    // Content
-    const content = document.createElement("div");
-    content.className = "app-content";
-    content.appendChild(appList);
-
-    // Resize handle (optional)
-    const resizeHandle = document.createElement("div");
-    resizeHandle.className = "resize-handle";
-
-    // Assemble window
-    win.appendChild(header);
-    win.appendChild(content);
-    win.appendChild(resizeHandle);
-
-    appWindowsContainer.appendChild(win);
-
-    // Initialize this window in WindowManager
-    manager.setupWindow(win);
-
-    // Close restores app list to container
-    win.querySelector(".close-btn").addEventListener("click", () => {
-      document.body.appendChild(appList);
-    });
+        // (stray code removed)
     });

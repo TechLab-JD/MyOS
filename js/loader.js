@@ -4,6 +4,10 @@ async function loadApps() {
 
   const appList = document.getElementById('app-list');
   const appWindows = document.getElementById('app-windows');
+  if (!appList || !appWindows) {
+    console.error('App loader error: #app-list or #app-windows not found in DOM.');
+    return;
+  }
 
   apps.forEach(app => {
     // add icon to the app list
