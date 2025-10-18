@@ -1,0 +1,3 @@
+[submodule "apps/MyOS-Gallery-App"]
+	path = apps/MyOS-Gallery-App
+	url = https://github.com/TechLab-JD/MyOS-Gallery-App
