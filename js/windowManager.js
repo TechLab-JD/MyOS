@@ -6,20 +6,24 @@ class WindowManager {
         this.isResizing = false;
         this.dragOffset = { x: 0, y: 0 };
 
-        // Global event listeners
-        document.addEventListener('mousemove', this.handleMouseMove.bind(this));
-        document.addEventListener('mouseup', this.handleMouseUp.bind(this));
+        // Pointer Events cover mouse, touch, and pen with one code path,
+        // so windows are draggable/resizable on phones and tablets too.
+        document.addEventListener('pointermove', this.handlePointerMove.bind(this));
+        document.addEventListener('pointerup', this.handlePointerUp.bind(this));
+        document.addEventListener('pointercancel', this.handlePointerUp.bind(this));
     }
 
-    handleMouseMove(e) {
+    handlePointerMove(e) {
         if (this.isDragging && this.activeWindow) {
+            e.preventDefault();
             this.drag(e);
         } else if (this.isResizing && this.activeWindow) {
+            e.preventDefault();
             this.resize(e);
         }
     }
 
-    handleMouseUp() {
+    handlePointerUp() {
         this.isDragging = false;
         this.isResizing = false;
         this.activeWindow = null;
@@ -44,6 +48,10 @@ class WindowManager {
         win.dataset.initialized = 'true';
         win.style.zIndex = this.highestZIndex++;
 
+        // Stop touch from scrolling/zooming the page while dragging these handles.
+        header.style.touchAction = 'none';
+        if (resizeHandle) resizeHandle.style.touchAction = 'none';
+
         // Minimize functionality
         minimizeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -65,8 +73,9 @@ class WindowManager {
         });
 
         // Window dragging
-        header.addEventListener('mousedown', (e) => {
+        header.addEventListener('pointerdown', (e) => {
             if (e.target.closest('.app-controls')) return;
+            if (e.button && e.button !== 0) return; // primary button / touch only
             e.preventDefault();
             this.activeWindow = win;
             this.isDragging = true;
@@ -77,7 +86,8 @@ class WindowManager {
 
         // Window resizing
         if (resizeHandle) {
-            resizeHandle.addEventListener('mousedown', (e) => {
+            resizeHandle.addEventListener('pointerdown', (e) => {
+                if (e.button && e.button !== 0) return;
                 e.preventDefault();
                 this.activeWindow = win;
                 this.isResizing = true;
@@ -85,8 +95,8 @@ class WindowManager {
             });
         }
 
-        // Bring to front on window click
-        win.addEventListener('mousedown', () => {
+        // Bring to front on window touch/click
+        win.addEventListener('pointerdown', () => {
             this.bringToFront(win);
         });
     }
