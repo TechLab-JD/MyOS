@@ -5,21 +5,32 @@ class WindowManager {
         this.isDragging = false;
         this.isResizing = false;
         this.dragOffset = { x: 0, y: 0 };
+        this.snapHint = null; // translucent preview of where a drag will snap
 
-        // Global event listeners
-        document.addEventListener('mousemove', this.handleMouseMove.bind(this));
-        document.addEventListener('mouseup', this.handleMouseUp.bind(this));
+        // Pointer Events cover mouse, touch, and pen with one code path,
+        // so windows are draggable/resizable on phones and tablets too.
+        document.addEventListener('pointermove', this.handlePointerMove.bind(this));
+        document.addEventListener('pointerup', this.handlePointerUp.bind(this));
+        document.addEventListener('pointercancel', this.handlePointerUp.bind(this));
     }
 
-    handleMouseMove(e) {
+    handlePointerMove(e) {
         if (this.isDragging && this.activeWindow) {
+            e.preventDefault();
             this.drag(e);
+            this.showSnapHint(this.snapZoneFor(e.clientX, e.clientY));
         } else if (this.isResizing && this.activeWindow) {
+            e.preventDefault();
             this.resize(e);
         }
     }
 
-    handleMouseUp() {
+    handlePointerUp(e) {
+        if (this.isDragging && this.activeWindow && e) {
+            const zone = this.snapZoneFor(e.clientX, e.clientY);
+            if (zone) this.snapTo(this.activeWindow, zone);
+        }
+        this.clearSnapHint();
         this.isDragging = false;
         this.isResizing = false;
         this.activeWindow = null;
@@ -44,6 +55,10 @@ class WindowManager {
         win.dataset.initialized = 'true';
         win.style.zIndex = this.highestZIndex++;
 
+        // Stop touch from scrolling/zooming the page while dragging these handles.
+        header.style.touchAction = 'none';
+        if (resizeHandle) resizeHandle.style.touchAction = 'none';
+
         // Minimize functionality
         minimizeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -64,10 +79,19 @@ class WindowManager {
             win.style.display = 'none';
         });
 
-        // Window dragging
-        header.addEventListener('mousedown', (e) => {
+        // Double-click the header to maximize / restore
+        header.addEventListener('dblclick', (e) => {
             if (e.target.closest('.app-controls')) return;
+            this.toggleMaximize(win);
+        });
+
+        // Window dragging
+        header.addEventListener('pointerdown', (e) => {
+            if (e.target.closest('.app-controls')) return;
+            if (e.button && e.button !== 0) return; // primary button / touch only
             e.preventDefault();
+            // Dragging a maximized window restores it first (feels natural).
+            if (win.classList.contains('maximized')) this.restore(win);
             this.activeWindow = win;
             this.isDragging = true;
             this.dragOffset.x = e.clientX - win.offsetLeft;
@@ -77,7 +101,8 @@ class WindowManager {
 
         // Window resizing
         if (resizeHandle) {
-            resizeHandle.addEventListener('mousedown', (e) => {
+            resizeHandle.addEventListener('pointerdown', (e) => {
+                if (e.button && e.button !== 0) return;
                 e.preventDefault();
                 this.activeWindow = win;
                 this.isResizing = true;
@@ -85,8 +110,8 @@ class WindowManager {
             });
         }
 
-        // Bring to front on window click
-        win.addEventListener('mousedown', () => {
+        // Bring to front on window touch/click
+        win.addEventListener('pointerdown', () => {
             this.bringToFront(win);
         });
     }
@@ -115,6 +140,108 @@ class WindowManager {
 
         win.style.width = newWidth + 'px';
         win.style.height = newHeight + 'px';
+    }
+
+    // ===== Maximize / restore =====
+
+    _rememberRect(win) {
+        win.dataset.restoreLeft = win.style.left;
+        win.dataset.restoreTop = win.style.top;
+        win.dataset.restoreWidth = win.style.width;
+        win.dataset.restoreHeight = win.style.height;
+    }
+
+    _area(win) {
+        // The container the window lives in (the homescreen), falling back to the viewport.
+        const parent = win.offsetParent;
+        if (parent && parent !== document.body) {
+            return { w: parent.clientWidth, h: parent.clientHeight };
+        }
+        return { w: window.innerWidth, h: window.innerHeight };
+    }
+
+    maximize(win) {
+        if (win.classList.contains('maximized')) return;
+        this._rememberRect(win);
+        const { w, h } = this._area(win);
+        win.classList.add('maximized');
+        win.style.left = '0px';
+        win.style.top = '0px';
+        win.style.width = w + 'px';
+        win.style.height = h + 'px';
+        this.bringToFront(win);
+    }
+
+    restore(win) {
+        if (!win.classList.contains('maximized') && !win.classList.contains('snapped')) return;
+        win.classList.remove('maximized', 'snapped');
+        if (win.dataset.restoreWidth) {
+            win.style.left = win.dataset.restoreLeft || win.style.left;
+            win.style.top = win.dataset.restoreTop || win.style.top;
+            win.style.width = win.dataset.restoreWidth;
+            win.style.height = win.dataset.restoreHeight;
+        }
+    }
+
+    toggleMaximize(win) {
+        if (win.classList.contains('maximized')) this.restore(win);
+        else this.maximize(win);
+    }
+
+    // ===== Edge snapping (drag to top = maximize, left/right = half) =====
+
+    snapZoneFor(x, y) {
+        const EDGE = 24;
+        if (y <= EDGE) return 'max';
+        if (x <= EDGE) return 'left';
+        if (x >= window.innerWidth - EDGE) return 'right';
+        return null;
+    }
+
+    snapRect(win, zone) {
+        const { w, h } = this._area(win);
+        if (zone === 'max') return { left: 0, top: 0, width: w, height: h };
+        if (zone === 'left') return { left: 0, top: 0, width: Math.round(w / 2), height: h };
+        if (zone === 'right') return { left: Math.round(w / 2), top: 0, width: Math.round(w / 2), height: h };
+        return null;
+    }
+
+    snapTo(win, zone) {
+        if (zone === 'max') { this.maximize(win); return; }
+        const r = this.snapRect(win, zone);
+        if (!r) return;
+        this._rememberRect(win);
+        win.classList.add('snapped');
+        win.style.left = r.left + 'px';
+        win.style.top = r.top + 'px';
+        win.style.width = r.width + 'px';
+        win.style.height = r.height + 'px';
+    }
+
+    showSnapHint(zone) {
+        if (!zone) { this.clearSnapHint(); return; }
+        const win = this.activeWindow;
+        if (!win) return;
+        const r = this.snapRect(win, zone);
+        if (!r) return;
+        if (!this.snapHint) {
+            this.snapHint = document.createElement('div');
+            this.snapHint.style.cssText =
+                'position:absolute;pointer-events:none;z-index:99998;border-radius:8px;' +
+                'background:rgba(80,140,230,0.25);border:2px solid rgba(80,140,230,0.7);' +
+                'transition:all 0.08s ease;';
+            (win.offsetParent || document.body).appendChild(this.snapHint);
+        }
+        this.snapHint.style.left = r.left + 'px';
+        this.snapHint.style.top = r.top + 'px';
+        this.snapHint.style.width = r.width + 'px';
+        this.snapHint.style.height = r.height + 'px';
+        this.snapHint.style.display = 'block';
+    }
+
+    clearSnapHint() {
+        if (this.snapHint) this.snapHint.remove();
+        this.snapHint = null;
     }
 }
 
