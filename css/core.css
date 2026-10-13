@@ -459,3 +459,50 @@
 .app-window.minimized { height: auto !important; }
 .app-window.minimized .app-content,
 .app-window.minimized .resize-handle { display: none; }
+
+/* ===============================================================
+   First-run onboarding + App Store
+   =============================================================== */
+.onboard-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+}
+.onboard {
+  width: min(520px, 92vw); max-height: 86vh; overflow: auto;
+  background: var(--card-bg); color: var(--text);
+  border-radius: 14px; padding: 24px; box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+.onboard h2 { margin: 0 0 6px; }
+.onboard p { margin: 0 0 16px; color: var(--text); opacity: 0.8; font-size: 0.9rem; }
+.onboard-apps { display: grid; gap: 10px; margin-bottom: 18px; }
+.onboard-app {
+  display: grid; grid-template-columns: auto 36px 1fr; align-items: center; gap: 10px;
+  padding: 10px 12px; border: 1px solid var(--muted-bg); border-radius: 10px; cursor: pointer;
+}
+.onboard-app img { width: 36px; height: 36px; object-fit: contain; grid-row: span 2; }
+.onboard-app input { width: 18px; height: 18px; grid-row: span 2; }
+.onboard-name { font-weight: 600; }
+.onboard-desc { grid-column: 3; font-size: 0.78rem; opacity: 0.7; }
+.onboard-go {
+  width: 100%; padding: 11px; border: 0; border-radius: 10px; cursor: pointer;
+  background: var(--accent2, #4a90e2); color: #fff; font: inherit; font-weight: 600;
+}
+.onboard-go:hover { filter: brightness(1.08); }
+
+.store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.store-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 14px 10px; border: 1px solid var(--muted-bg); border-radius: 12px; background: var(--surface);
+}
+.store-card img { width: 44px; height: 44px; object-fit: contain; margin-bottom: 8px; }
+.store-name { font-weight: 600; font-size: 0.88rem; }
+.store-desc { font-size: 0.72rem; opacity: 0.7; margin: 4px 0 10px; flex: 1; }
+.store-actions { display: flex; gap: 6px; }
+.store-actions button {
+  border: 1px solid var(--muted-bg); background: none; color: var(--text);
+  border-radius: 7px; padding: 5px 10px; font: inherit; font-size: 0.76rem; cursor: pointer;
+}
+.store-install { border-color: var(--accent2, #4a90e2) !important; color: var(--accent2, #4a90e2) !important; }
+.store-remove { opacity: 0.8; }
+.store-actions button:hover { background: rgba(127, 127, 127, 0.18); }

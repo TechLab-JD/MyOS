@@ -2,6 +2,7 @@
   {
     "id": "TemplateApp",
     "name": "Template App",
+    "desc": "A starter app — copy it to build your own.",
     "icon": "apps/template/icon.svg",
     "html": "apps/template/app.html",
     "css": "apps/template/app.css",
@@ -10,6 +11,7 @@
   {
     "id": "GalleryApp",
     "name": "Gallery App",
+    "desc": "Browse image albums and view them full-screen.",
     "icon": "apps/MyOS-Gallery-App/icon.svg",
     "html": "apps/MyOS-Gallery-App/app.html",
     "css": "apps/MyOS-Gallery-App/app.css",
