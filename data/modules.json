@@ -1,20 +1,90 @@
 [
   {
+    "id": "NotepadApp",
+    "name": "Notepad",
+    "desc": "Plain-text notes, autosaved in your browser.",
+    "icon": "apps/MyOS-Notepad-App/icon.svg",
+    "html": "apps/MyOS-Notepad-App/app.html",
+    "css": "apps/MyOS-Notepad-App/app.css",
+    "js": "apps/MyOS-Notepad-App/app.js",
+    "width": 460,
+    "height": 360
+  },
+  {
+    "id": "CalculatorApp",
+    "name": "Calculator",
+    "desc": "A simple calculator.",
+    "icon": "apps/MyOS-Calculator-App/icon.svg",
+    "html": "apps/MyOS-Calculator-App/app.html",
+    "css": "apps/MyOS-Calculator-App/app.css",
+    "js": "apps/MyOS-Calculator-App/app.js",
+    "width": 300,
+    "height": 400
+  },
+  {
+    "id": "TasksApp",
+    "name": "Tasks",
+    "desc": "A to-do list saved to your browser.",
+    "icon": "apps/MyOS-Tasks-App/icon.svg",
+    "html": "apps/MyOS-Tasks-App/app.html",
+    "css": "apps/MyOS-Tasks-App/app.css",
+    "js": "apps/MyOS-Tasks-App/app.js",
+    "width": 400,
+    "height": 420
+  },
+  {
+    "id": "ClockApp",
+    "name": "Clock",
+    "desc": "Clock, stopwatch, and countdown timer.",
+    "icon": "apps/MyOS-Clock-App/icon.svg",
+    "html": "apps/MyOS-Clock-App/app.html",
+    "css": "apps/MyOS-Clock-App/app.css",
+    "js": "apps/MyOS-Clock-App/app.js",
+    "width": 360,
+    "height": 360
+  },
+  {
+    "id": "PaintApp",
+    "name": "Paint",
+    "desc": "Draw on a canvas and save a PNG.",
+    "icon": "apps/MyOS-Paint-App/icon.svg",
+    "html": "apps/MyOS-Paint-App/app.html",
+    "css": "apps/MyOS-Paint-App/app.css",
+    "js": "apps/MyOS-Paint-App/app.js",
+    "width": 560,
+    "height": 470
+  },
+  {
+    "id": "Game2048App",
+    "name": "2048",
+    "desc": "The classic sliding-tile game.",
+    "icon": "apps/MyOS-2048-App/icon.svg",
+    "html": "apps/MyOS-2048-App/app.html",
+    "css": "apps/MyOS-2048-App/app.css",
+    "js": "apps/MyOS-2048-App/app.js",
+    "width": 360,
+    "height": 470
+  },
+  {
+    "id": "GalleryApp",
+    "name": "Gallery",
+    "desc": "Browse image albums and view them full-screen.",
+    "icon": "apps/MyOS-Gallery-App/icon.svg",
+    "html": "apps/MyOS-Gallery-App/app.html",
+    "css": "apps/MyOS-Gallery-App/app.css",
+    "js": "apps/MyOS-Gallery-App/app.js",
+    "width": 520,
+    "height": 420
+  },
+  {
     "id": "TemplateApp",
     "name": "Template App",
     "desc": "A starter app — copy it to build your own.",
     "icon": "apps/template/icon.svg",
     "html": "apps/template/app.html",
     "css": "apps/template/app.css",
-    "js": "apps/template/app.js"
-  },
-  {
-    "id": "GalleryApp",
-    "name": "Gallery App",
-    "desc": "Browse image albums and view them full-screen.",
-    "icon": "apps/MyOS-Gallery-App/icon.svg",
-    "html": "apps/MyOS-Gallery-App/app.html",
-    "css": "apps/MyOS-Gallery-App/app.css",
-    "js": "apps/MyOS-Gallery-App/app.js"
+    "js": "apps/template/app.js",
+    "width": 400,
+    "height": 300
   }
 ]

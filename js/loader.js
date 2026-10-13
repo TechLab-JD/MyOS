@@ -57,6 +57,15 @@
         imported.dataset.app = app.id;
         appWindows.appendChild(imported);
 
+        // Default size + a cascading position, unless the app set its own.
+        if (!imported.style.width) imported.style.width = (app.width || 440) + 'px';
+        if (!imported.style.height) imported.style.height = (app.height || 340) + 'px';
+        if (!imported.style.left) {
+          const n = (MyOS._openN = (MyOS._openN || 0) + 1);
+          imported.style.left = (110 + (n % 6) * 30) + 'px';
+          imported.style.top = (80 + (n % 6) * 30) + 'px';
+        }
+
         if (app.css && !document.querySelector('link[href="' + app.css + '"]')) {
           const link = document.createElement('link');
           link.rel = 'stylesheet';

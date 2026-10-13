@@ -1,3 +1,21 @@
 [submodule "apps/MyOS-Gallery-App"]
 	path = apps/MyOS-Gallery-App
 	url = https://github.com/TechLab-JD/MyOS-Gallery-App
+[submodule "apps/MyOS-Notepad-App"]
+	path = apps/MyOS-Notepad-App
+	url = https://github.com/TechLab-JD/MyOS-Notepad-App
+[submodule "apps/MyOS-Calculator-App"]
+	path = apps/MyOS-Calculator-App
+	url = https://github.com/TechLab-JD/MyOS-Calculator-App
+[submodule "apps/MyOS-Tasks-App"]
+	path = apps/MyOS-Tasks-App
+	url = https://github.com/TechLab-JD/MyOS-Tasks-App
+[submodule "apps/MyOS-Clock-App"]
+	path = apps/MyOS-Clock-App
+	url = https://github.com/TechLab-JD/MyOS-Clock-App
+[submodule "apps/MyOS-Paint-App"]
+	path = apps/MyOS-Paint-App
+	url = https://github.com/TechLab-JD/MyOS-Paint-App
+[submodule "apps/MyOS-2048-App"]
+	path = apps/MyOS-2048-App
+	url = https://github.com/TechLab-JD/MyOS-2048-App
