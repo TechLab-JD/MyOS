@@ -2,17 +2,17 @@
   {
     "id": "TemplateApp",
     "name": "Template App",
-    "icon": "/MyOS/apps/template/icon.svg",
-    "html": "/MyOS/apps/template/app.html",
-    "css": "/MyOS/apps/template/app.css",
-    "js": "/MyOS/apps/template/app.js"
+    "icon": "apps/template/icon.svg",
+    "html": "apps/template/app.html",
+    "css": "apps/template/app.css",
+    "js": "apps/template/app.js"
   },
   {
     "id": "GalleryApp",
     "name": "Gallery App",
-    "icon": "/MyOS/apps/MyOS-Gallery-App/icon.svg",
-    "html": "/MyOS/apps/MyOS-Gallery-App/app.html",
-    "css": "/MyOS/apps/MyOS-Gallery-App/app.css",
-    "js": "/MyOS/apps/MyOS-Gallery-App/app.js"
+    "icon": "apps/MyOS-Gallery-App/icon.svg",
+    "html": "apps/MyOS-Gallery-App/app.html",
+    "css": "apps/MyOS-Gallery-App/app.css",
+    "js": "apps/MyOS-Gallery-App/app.js"
   }
 ]

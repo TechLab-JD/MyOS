@@ -210,3 +210,117 @@ function launchApp(appId) {
 
   console.warn(`App with id "${appId}" not found.`);
 }
+
+// ===============================
+// 🖼️ Wallpaper (persisted to localStorage)
+// ===============================
+const WALLPAPER_KEY = "myos_wallpaper";
+
+function applyWallpaper(url) {
+  const home = document.querySelector(".homescreen");
+  if (!home) return;
+  if (url) {
+    const safe = String(url).replace(/"/g, "%22"); // keep it inside the url("...")
+    home.style.backgroundImage = `url("${safe}")`;
+  } else {
+    home.style.backgroundImage = ""; // fall back to the CSS default wallpaper
+  }
+}
+
+try {
+  const savedWall = localStorage.getItem(WALLPAPER_KEY);
+  if (savedWall) applyWallpaper(savedWall);
+} catch (e) {}
+
+// ===============================
+// ⚙️ Settings window (theme + wallpaper)
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  const settingsButton = document.getElementById("settingsButton");
+  if (settingsButton) settingsButton.addEventListener("click", openSettings);
+});
+
+function openSettings() {
+  const existing = document.getElementById("settings-window");
+  if (existing) {
+    existing.style.display = "flex";
+    if (window.windowManager) window.windowManager.bringToFront(existing);
+    return;
+  }
+
+  const win = document.createElement("div");
+  win.className = "app-window";
+  win.id = "settings-window";
+  win.style.left = "220px";
+  win.style.top = "120px";
+  win.style.width = "360px";
+  win.style.height = "300px";
+  win.innerHTML = `
+    <div class="app-header">
+      <div class="app-title">⚙️ Settings</div>
+      <div class="app-controls">
+        <button class="minimize-btn">—</button>
+        <button class="close-btn">✖</button>
+      </div>
+    </div>
+    <div class="app-content" style="padding:16px; overflow:auto;">
+      <p style="margin:0 0 6px;"><strong>Theme</strong></p>
+      <button id="settings-theme-btn" type="button">Toggle light / dark</button>
+      <p style="margin:16px 0 6px;"><strong>Wallpaper URL</strong></p>
+      <input id="settings-wallpaper" type="url" placeholder="https://… or assets/wallpaper.png" style="width:100%; box-sizing:border-box;">
+      <div style="margin-top:10px; display:flex; gap:8px;">
+        <button id="settings-wallpaper-apply" type="button">Apply</button>
+        <button id="settings-wallpaper-reset" type="button">Reset</button>
+      </div>
+    </div>
+    <div class="resize-handle"></div>
+  `;
+  document.getElementById("app-windows").appendChild(win);
+  if (window.windowManager) window.windowManager.setupWindow(win);
+
+  win.querySelector("#settings-theme-btn").addEventListener("click", () => {
+    const t = document.getElementById("theme-toggle-btn");
+    if (t) t.click();
+  });
+
+  const wallInput = win.querySelector("#settings-wallpaper");
+  try { wallInput.value = localStorage.getItem(WALLPAPER_KEY) || ""; } catch (e) {}
+
+  win.querySelector("#settings-wallpaper-apply").addEventListener("click", () => {
+    const url = wallInput.value.trim();
+    applyWallpaper(url);
+    try { url ? localStorage.setItem(WALLPAPER_KEY, url) : localStorage.removeItem(WALLPAPER_KEY); } catch (e) {}
+  });
+  win.querySelector("#settings-wallpaper-reset").addEventListener("click", () => {
+    wallInput.value = "";
+    applyWallpaper("");
+    try { localStorage.removeItem(WALLPAPER_KEY); } catch (e) {}
+  });
+}
+
+// ===============================
+// 🔍 App search — filters the Applications panel (no more 404 navigation)
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("searchForm");
+  const input = document.getElementById("searchInput");
+  if (!form || !input) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();          // the old form action pointed at a 404
+    openAppsPanel();
+    setTimeout(() => filterApps(input.value), 350); // wait for the grid to populate
+  });
+  input.addEventListener("input", () => filterApps(input.value));
+});
+
+function filterApps(query) {
+  const grid = document.getElementById("apps-grid");
+  if (!grid) return;
+  const q = (query || "").trim().toLowerCase();
+  grid.querySelectorAll(".apps-grid-item").forEach((item) => {
+    const nameEl = item.querySelector(".app-name");
+    const name = (nameEl ? nameEl.textContent : "").toLowerCase();
+    item.style.display = (!q || name.includes(q)) ? "" : "none";
+  });
+}

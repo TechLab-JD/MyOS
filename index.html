@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>MyOS</title>
-        <meta name="description" content="MyOS - Personalized GitHub Page modular productivity enviroment.">
+        <meta name="description" content="MyOS - a personalized, modular productivity environment that runs on any static host.">
         <!-- Custom CSS -->
-        <link href="/MyOS/css/themes.css" rel="stylesheet">
-        <link href="/MyOS/css/core.css" rel="stylesheet">
-        <link href="/MyOS/css/menu.css" rel="stylesheet">
+        <link href="css/themes.css" rel="stylesheet">
+        <link href="css/core.css" rel="stylesheet">
+        <link href="css/menu.css" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     </head>
@@ -52,14 +52,13 @@
     =============================== -->
         <footer class="taskbar">
             <button class="menu-btn" id="menu-btn">
-                <img src="/MyOS/assets/menu.svg" class="menu-icon" alt="menu icon">
+                <img src="assets/menu.svg" class="menu-icon" alt="menu icon">
             </button>
 
             <div class="start-menu" id="start-menu">
                 <div class="menu-content">
                     <ul class="menu-list">
-                        <li><button>⚙️ Settings</button></li>
-                        <li><button>📁 Files</button></li>
+                        <li><button id="settingsButton">⚙️ Settings</button></li>
                         <li><button id="appsButton">💻 Apps</button></li>
                     </ul>
                 </div>
@@ -67,8 +66,8 @@
 
             <div class="center-area">
                 <div class="search-bar">
-                    <form id="searchForm" action="/search-results" method="get">
-                        <input type="search" id="searchInput" name="q" placeholder="🔍 Search">
+                    <form id="searchForm" role="search">
+                        <input type="search" id="searchInput" name="q" placeholder="🔍 Search apps" autocomplete="off">
                     </form>
                 </div>
                 <div class="app-bar">
@@ -77,12 +76,6 @@
             </div>
 
         <div class="right-area">
-            <div class="carot-menu">
-                <button class="menu-btn" id="carot-btn">
-                    <img src="/MyOS/assets/carot.svg" class="carot-icon" alt="carot icon">
-                </button>
-            </div>
-
             <div class="time">
                 <button id="clockButton">
                     <span id="currentTime"></span>
@@ -99,10 +92,10 @@
         </footer>
 
         <!-- Custom JS -->
-        <script src="/MyOS/js/theme.js"></script>         
-        <script src="/MyOS/js/core.js"></script>   
-        <script src="/MyOS/js/windowManager.js"></script>
-        <script src="/MyOS/js/loader.js"></script>
+        <script src="js/theme.js"></script>         
+        <script src="js/core.js"></script>   
+        <script src="js/windowManager.js"></script>
+        <script src="js/loader.js"></script>
 
     </body>
 </html>

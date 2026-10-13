@@ -1,6 +1,6 @@
 // loader.js
 async function loadApps() {
-  const response = await fetch('/MyOS/data/modules.json');
+  const response = await fetch('data/modules.json');
   const apps = await response.json();
 
   const appList = document.getElementById('app-list');
@@ -12,7 +12,12 @@ async function loadApps() {
     iconBtn.className = 'app-icon';
     iconBtn.title = app.name;
     iconBtn.dataset.app = app.id; // important for apps panel
-    iconBtn.innerHTML = `<img src="${app.icon}" alt="${app.name}" />`;
+    // Build the icon with DOM APIs (no innerHTML) so app names/paths are never
+    // interpreted as HTML — safe even if modules.json comes from an untrusted fork.
+    const iconImg = document.createElement('img');
+    iconImg.src = app.icon;
+    iconImg.alt = app.name;
+    iconBtn.appendChild(iconImg);
     appList.appendChild(iconBtn);
 
     // ====== 2️⃣ Fetch app HTML ======
