@@ -387,3 +387,75 @@
   color: var(--text);
   opacity: 0.9;
 }
+
+/* ===============================================================
+   App window chrome — defined ONCE here (the OS), so every window
+   looks consistent and apps only need to style their own content.
+   The key line is `.app-content { min-height: 0 }`: it lets the
+   content area shrink inside the flex column instead of overflowing
+   past the window (which caused a dark band below the window).
+   =============================================================== */
+.app-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  min-width: 220px;
+  min-height: 120px;
+}
+
+.app-window .app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  flex-shrink: 0;
+  padding: 0 10px;
+  background: var(--muted-bg);
+  color: var(--text);
+  cursor: move;
+  user-select: none;
+}
+
+.app-window .app-title { font-weight: 600; font-size: 0.9rem; }
+
+.app-window .app-controls { display: flex; gap: 2px; }
+
+.app-window .app-controls button {
+  background: none;
+  border: none;
+  color: var(--text);
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.app-window .app-controls button:hover { background: rgba(127, 127, 127, 0.25); }
+
+.app-window .app-content {
+  flex: 1 1 auto;
+  min-height: 0;           /* allow shrink within the flex column (no overflow band) */
+  overflow: auto;
+  padding: 12px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.app-window .resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  cursor: se-resize;
+}
+
+.app-window.minimized { height: auto !important; }
+.app-window.minimized .app-content,
+.app-window.minimized .resize-handle { display: none; }
