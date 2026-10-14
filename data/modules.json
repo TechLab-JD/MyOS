@@ -132,6 +132,94 @@
     "height": 440
   },
   {
+    "id": "CalendarApp",
+    "name": "Calendar",
+    "desc": "Month view with saved events.",
+    "icon": "apps/MyOS-Calendar-App/icon.svg",
+    "html": "apps/MyOS-Calendar-App/app.html",
+    "css": "apps/MyOS-Calendar-App/app.css",
+    "js": "apps/MyOS-Calendar-App/app.js",
+    "width": 380,
+    "height": 470
+  },
+  {
+    "id": "ConvertApp",
+    "name": "Unit Converter",
+    "desc": "Length, weight, temperature — offline.",
+    "icon": "apps/MyOS-Convert-App/icon.svg",
+    "html": "apps/MyOS-Convert-App/app.html",
+    "css": "apps/MyOS-Convert-App/app.css",
+    "js": "apps/MyOS-Convert-App/app.js",
+    "width": 340,
+    "height": 300
+  },
+  {
+    "id": "SnakeApp",
+    "name": "Snake",
+    "desc": "The classic Snake game.",
+    "icon": "apps/MyOS-Snake-App/icon.svg",
+    "html": "apps/MyOS-Snake-App/app.html",
+    "css": "apps/MyOS-Snake-App/app.css",
+    "js": "apps/MyOS-Snake-App/app.js",
+    "width": 340,
+    "height": 420
+  },
+  {
+    "id": "MinesweeperApp",
+    "name": "Minesweeper",
+    "desc": "The classic Minesweeper game.",
+    "icon": "apps/MyOS-Minesweeper-App/icon.svg",
+    "html": "apps/MyOS-Minesweeper-App/app.html",
+    "css": "apps/MyOS-Minesweeper-App/app.css",
+    "js": "apps/MyOS-Minesweeper-App/app.js",
+    "width": 340,
+    "height": 440
+  },
+  {
+    "id": "JsonApp",
+    "name": "JSON Tools",
+    "desc": "Format, minify, and validate JSON.",
+    "icon": "apps/MyOS-JSON-App/icon.svg",
+    "html": "apps/MyOS-JSON-App/app.html",
+    "css": "apps/MyOS-JSON-App/app.css",
+    "js": "apps/MyOS-JSON-App/app.js",
+    "width": 520,
+    "height": 400
+  },
+  {
+    "id": "DictionaryApp",
+    "name": "Dictionary",
+    "desc": "Look up word definitions.",
+    "icon": "apps/MyOS-Dictionary-App/icon.svg",
+    "html": "apps/MyOS-Dictionary-App/app.html",
+    "css": "apps/MyOS-Dictionary-App/app.css",
+    "js": "apps/MyOS-Dictionary-App/app.js",
+    "width": 420,
+    "height": 440
+  },
+  {
+    "id": "HabitsApp",
+    "name": "Habit Tracker",
+    "desc": "Track daily habits and streaks.",
+    "icon": "apps/MyOS-Habits-App/icon.svg",
+    "html": "apps/MyOS-Habits-App/app.html",
+    "css": "apps/MyOS-Habits-App/app.css",
+    "js": "apps/MyOS-Habits-App/app.js",
+    "width": 440,
+    "height": 440
+  },
+  {
+    "id": "KanbanApp",
+    "name": "Kanban",
+    "desc": "Drag-and-drop task board.",
+    "icon": "apps/MyOS-Kanban-App/icon.svg",
+    "html": "apps/MyOS-Kanban-App/app.html",
+    "css": "apps/MyOS-Kanban-App/app.css",
+    "js": "apps/MyOS-Kanban-App/app.js",
+    "width": 560,
+    "height": 420
+  },
+  {
     "id": "GalleryApp",
     "name": "Gallery",
     "desc": "Browse image albums and view them full-screen.",

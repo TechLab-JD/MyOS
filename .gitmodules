@@ -37,3 +37,27 @@
 [submodule "apps/MyOS-Color-App"]
 	path = apps/MyOS-Color-App
 	url = https://github.com/TechLab-JD/MyOS-Color-App
+[submodule "apps/MyOS-Calendar-App"]
+	path = apps/MyOS-Calendar-App
+	url = https://github.com/TechLab-JD/MyOS-Calendar-App
+[submodule "apps/MyOS-Convert-App"]
+	path = apps/MyOS-Convert-App
+	url = https://github.com/TechLab-JD/MyOS-Convert-App
+[submodule "apps/MyOS-Snake-App"]
+	path = apps/MyOS-Snake-App
+	url = https://github.com/TechLab-JD/MyOS-Snake-App
+[submodule "apps/MyOS-Minesweeper-App"]
+	path = apps/MyOS-Minesweeper-App
+	url = https://github.com/TechLab-JD/MyOS-Minesweeper-App
+[submodule "apps/MyOS-JSON-App"]
+	path = apps/MyOS-JSON-App
+	url = https://github.com/TechLab-JD/MyOS-JSON-App
+[submodule "apps/MyOS-Dictionary-App"]
+	path = apps/MyOS-Dictionary-App
+	url = https://github.com/TechLab-JD/MyOS-Dictionary-App
+[submodule "apps/MyOS-Habits-App"]
+	path = apps/MyOS-Habits-App
+	url = https://github.com/TechLab-JD/MyOS-Habits-App
+[submodule "apps/MyOS-Kanban-App"]
+	path = apps/MyOS-Kanban-App
+	url = https://github.com/TechLab-JD/MyOS-Kanban-App
