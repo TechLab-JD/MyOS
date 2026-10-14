@@ -151,7 +151,7 @@ function openAppsPanel() {
       </div>
     </div>
     <div class="app-content">
-      <div id="apps-grid" class="apps-grid">
+      <div id="apps-grid" class="apps-body">
         <p>Loading applications...</p>
       </div>
     </div>
@@ -165,32 +165,40 @@ function openAppsPanel() {
 
   setTimeout(() => {
     appsGrid.innerHTML = "";
-    const icons = appList.querySelectorAll(".app-icon");
+    const icons = Array.from(appList.querySelectorAll(".app-icon"));
 
     if (icons.length === 0) {
       appsGrid.innerHTML = "<p>No apps found.</p>";
       return;
     }
 
-    icons.forEach(icon => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "apps-grid-item";
-      const clone = icon.cloneNode(true);
+    // Group the installed apps by category (from the catalog).
+    const CAT_ORDER = ["Productivity", "Utilities", "Media", "Creative", "Games", "Developer"];
+    const catOf = {};
+    ((window.MyOS && window.MyOS.catalog) || []).forEach(a => { catOf[a.id] = a.category || "Other"; });
+    const byCat = {};
+    icons.forEach(icon => { const c = catOf[icon.dataset.app] || "Other"; (byCat[c] = byCat[c] || []).push(icon); });
+    const cats = CAT_ORDER.filter(c => byCat[c])
+      .concat(Object.keys(byCat).filter(c => CAT_ORDER.indexOf(c) < 0).sort());
 
-      // add app label below the icon
-      const appName = document.createElement("div");
-      appName.className = "app-name";
-      appName.textContent = icon.title || icon.dataset.name || "App";
-
-      wrapper.appendChild(clone);
-      wrapper.appendChild(appName);
-      appsGrid.appendChild(wrapper);
-
-      // 🎯 single-click launches the app
-      wrapper.addEventListener("click", () => {
-        const appId = icon.dataset.app;
-        launchApp(appId);
+    cats.forEach(c => {
+      const h = document.createElement("div");
+      h.className = "apps-cat-h";
+      h.textContent = c;
+      const grid = document.createElement("div");
+      grid.className = "apps-grid";
+      byCat[c].forEach(icon => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "apps-grid-item";
+        wrapper.appendChild(icon.cloneNode(true));
+        const appName = document.createElement("div");
+        appName.className = "app-name";
+        appName.textContent = icon.title || icon.dataset.name || "App";
+        wrapper.appendChild(appName);
+        wrapper.addEventListener("click", () => launchApp(icon.dataset.app));
+        grid.appendChild(wrapper);
       });
+      appsGrid.append(h, grid);
     });
   }, 300);
 }

@@ -514,3 +514,13 @@
 .tm-btn:hover { background: rgba(127,127,127,0.25); }
 .tm-title { font-size: 0.74rem; opacity: 0.85; cursor: pointer; max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tm-title:hover { opacity: 1; text-decoration: underline; }
+
+/* Category headers in the App Store + Apps panel */
+.store-body { display: flex; flex-direction: column; }
+.store-cat-h, .apps-cat-h {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;
+  color: var(--accent2, #4a90e2); margin: 14px 2px 7px;
+}
+.store-cat-h:first-child, .apps-cat-h:first-child { margin-top: 2px; }
+.apps-body { display: flex; flex-direction: column; gap: 2px; }
+.apps-cat-h { font-size: 0.66rem; margin: 9px 2px 3px; }

@@ -58,48 +58,59 @@
         '<div class="app-title">🛍️ App Store</div>' +
         '<div class="app-controls"><button class="minimize-btn">—</button><button class="close-btn">✖</button></div>' +
       '</div>' +
-      '<div class="app-content"><div class="store-grid"></div></div>' +
+      '<div class="app-content"><div class="store-body"></div></div>' +
       '<div class="resize-handle"></div>';
     document.getElementById('app-windows').appendChild(win);
     if (window.windowManager) window.windowManager.setupWindow(win);
-    renderStore(win.querySelector('.store-grid'));
+    renderStore(win.querySelector('.store-body'));
   };
 
-  function renderStore(grid) {
-    grid.replaceChildren();
-    (MyOS.catalog || []).forEach(function (app) {
-      const installed = MyOS.isInstalled(app.id);
+  const CAT_ORDER = ['Productivity', 'Utilities', 'Media', 'Creative', 'Games', 'Developer'];
 
-      const card = document.createElement('div');
-      card.className = 'store-card';
+  function makeStoreCard(app, body) {
+    const installed = MyOS.isInstalled(app.id);
+    const card = document.createElement('div');
+    card.className = 'store-card';
 
-      const img = document.createElement('img'); img.src = app.icon; img.alt = '';
-      const name = document.createElement('div'); name.className = 'store-name'; name.textContent = app.name;
-      const desc = document.createElement('div'); desc.className = 'store-desc'; desc.textContent = app.desc || '';
+    const img = document.createElement('img'); img.src = app.icon; img.alt = '';
+    const name = document.createElement('div'); name.className = 'store-name'; name.textContent = app.name;
+    const desc = document.createElement('div'); desc.className = 'store-desc'; desc.textContent = app.desc || '';
 
-      const actions = document.createElement('div'); actions.className = 'store-actions';
-      const launch = document.createElement('button'); launch.className = 'store-launch'; launch.textContent = 'Launch';
-      launch.addEventListener('click', function () { MyOS.openApp(app.id); });
+    const actions = document.createElement('div'); actions.className = 'store-actions';
+    const launch = document.createElement('button'); launch.className = 'store-launch'; launch.textContent = 'Launch';
+    launch.addEventListener('click', function () { MyOS.openApp(app.id); });
 
-      const toggle = document.createElement('button');
-      toggle.textContent = installed ? 'Remove' : 'Install';
-      toggle.className = installed ? 'store-remove' : 'store-install';
-      toggle.addEventListener('click', function () {
-        let inst = MyOS.getInstalled() || [];
-        if (MyOS.isInstalled(app.id)) {
-          inst = inst.filter(function (i) { return i !== app.id; });
-          MyOS.unloadApp(app.id);
-        } else {
-          inst = inst.concat([app.id]);
-          MyOS.loadApp(app);
-        }
-        MyOS.setInstalled(inst);
-        renderStore(grid);
-      });
+    const toggle = document.createElement('button');
+    toggle.textContent = installed ? 'Remove' : 'Install';
+    toggle.className = installed ? 'store-remove' : 'store-install';
+    toggle.addEventListener('click', function () {
+      let inst = MyOS.getInstalled() || [];
+      if (MyOS.isInstalled(app.id)) { inst = inst.filter(function (i) { return i !== app.id; }); MyOS.unloadApp(app.id); }
+      else { inst = inst.concat([app.id]); MyOS.loadApp(app); }
+      MyOS.setInstalled(inst);
+      renderStore(body);
+    });
 
-      actions.append(launch, toggle);
-      card.append(img, name, desc, actions);
-      grid.appendChild(card);
+    actions.append(launch, toggle);
+    card.append(img, name, desc, actions);
+    return card;
+  }
+
+  // Group the catalog by category, each category a header + its own card grid.
+  function renderStore(body) {
+    body.replaceChildren();
+    const byCat = {};
+    (MyOS.catalog || []).forEach(function (a) {
+      const c = a.category || 'Other';
+      (byCat[c] = byCat[c] || []).push(a);
+    });
+    const cats = CAT_ORDER.filter(function (c) { return byCat[c]; })
+      .concat(Object.keys(byCat).filter(function (c) { return CAT_ORDER.indexOf(c) < 0; }).sort());
+    cats.forEach(function (c) {
+      const h = document.createElement('div'); h.className = 'store-cat-h'; h.textContent = c;
+      const grid = document.createElement('div'); grid.className = 'store-grid';
+      byCat[c].forEach(function (app) { grid.appendChild(makeStoreCard(app, body)); });
+      body.append(h, grid);
     });
   }
 
