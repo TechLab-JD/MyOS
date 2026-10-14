@@ -324,3 +324,30 @@ function filterApps(query) {
     item.style.display = (!q || name.includes(q)) ? "" : "none";
   });
 }
+
+// ===============================
+// 🎵 Taskbar music mini-player
+// ===============================
+(function wireMusicWidget() {
+  const w = document.getElementById('trayMusic');
+  if (!w) return;
+  const title = document.getElementById('tm-title');
+  const play = document.getElementById('tm-play');
+
+  function update(s) {
+    if (!s || !s.track) { w.setAttribute('hidden', ''); return; }
+    w.removeAttribute('hidden');
+    title.textContent = s.track;
+    play.textContent = s.playing ? '⏸' : '▶';
+  }
+  const ctl = (fn) => () => { if (window.MyOS && window.MyOS.music) window.MyOS.music[fn](); };
+
+  window.addEventListener('myos:music', (e) => update(e.detail));
+  document.getElementById('tm-prev').addEventListener('click', ctl('prev'));
+  play.addEventListener('click', ctl('toggle'));
+  document.getElementById('tm-next').addEventListener('click', ctl('next'));
+  title.addEventListener('click', () => { if (window.MyOS && window.MyOS.openApp) window.MyOS.openApp('MusicApp'); });
+
+  // In case music was already loaded before this ran.
+  if (window.MyOS && window.MyOS.music && window.MyOS.music.getState) update(window.MyOS.music.getState());
+})();

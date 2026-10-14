@@ -506,3 +506,11 @@
 .store-install { border-color: var(--accent2, #4a90e2) !important; color: var(--accent2, #4a90e2) !important; }
 .store-remove { opacity: 0.8; }
 .store-actions button:hover { background: rgba(127, 127, 127, 0.18); }
+
+/* Taskbar music mini-player (next to the clock) */
+.tray-music { display: flex; align-items: center; gap: 2px; margin-right: 10px; max-width: 230px; }
+.tray-music[hidden] { display: none; }
+.tm-btn { background: none; border: 0; color: var(--text, #eee); cursor: pointer; font-size: 0.9rem; padding: 4px 5px; border-radius: 6px; line-height: 1; }
+.tm-btn:hover { background: rgba(127,127,127,0.25); }
+.tm-title { font-size: 0.74rem; opacity: 0.85; cursor: pointer; max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tm-title:hover { opacity: 1; text-decoration: underline; }
