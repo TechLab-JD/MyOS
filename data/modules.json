@@ -66,6 +66,50 @@
     "height": 470
   },
   {
+    "id": "FilesApp",
+    "name": "Files",
+    "desc": "A tiny file store in your browser.",
+    "icon": "apps/MyOS-Files-App/icon.svg",
+    "html": "apps/MyOS-Files-App/app.html",
+    "css": "apps/MyOS-Files-App/app.css",
+    "js": "apps/MyOS-Files-App/app.js",
+    "width": 520,
+    "height": 380
+  },
+  {
+    "id": "NotesApp",
+    "name": "Sticky Notes",
+    "desc": "Colored sticky notes.",
+    "icon": "apps/MyOS-Notes-App/icon.svg",
+    "html": "apps/MyOS-Notes-App/app.html",
+    "css": "apps/MyOS-Notes-App/app.css",
+    "js": "apps/MyOS-Notes-App/app.js",
+    "width": 460,
+    "height": 400
+  },
+  {
+    "id": "MusicApp",
+    "name": "Music",
+    "desc": "Play your local audio files.",
+    "icon": "apps/MyOS-Music-App/icon.svg",
+    "html": "apps/MyOS-Music-App/app.html",
+    "css": "apps/MyOS-Music-App/app.css",
+    "js": "apps/MyOS-Music-App/app.js",
+    "width": 440,
+    "height": 440
+  },
+  {
+    "id": "WeatherApp",
+    "name": "Weather",
+    "desc": "Current conditions and a short forecast.",
+    "icon": "apps/MyOS-Weather-App/icon.svg",
+    "html": "apps/MyOS-Weather-App/app.html",
+    "css": "apps/MyOS-Weather-App/app.css",
+    "js": "apps/MyOS-Weather-App/app.js",
+    "width": 380,
+    "height": 440
+  },
+  {
     "id": "GalleryApp",
     "name": "Gallery",
     "desc": "Browse image albums and view them full-screen.",

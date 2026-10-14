@@ -19,3 +19,15 @@
 [submodule "apps/MyOS-2048-App"]
 	path = apps/MyOS-2048-App
 	url = https://github.com/TechLab-JD/MyOS-2048-App
+[submodule "apps/MyOS-Files-App"]
+	path = apps/MyOS-Files-App
+	url = https://github.com/TechLab-JD/MyOS-Files-App
+[submodule "apps/MyOS-Notes-App"]
+	path = apps/MyOS-Notes-App
+	url = https://github.com/TechLab-JD/MyOS-Notes-App
+[submodule "apps/MyOS-Music-App"]
+	path = apps/MyOS-Music-App
+	url = https://github.com/TechLab-JD/MyOS-Music-App
+[submodule "apps/MyOS-Weather-App"]
+	path = apps/MyOS-Weather-App
+	url = https://github.com/TechLab-JD/MyOS-Weather-App
