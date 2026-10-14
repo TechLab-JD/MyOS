@@ -31,3 +31,9 @@
 [submodule "apps/MyOS-Weather-App"]
 	path = apps/MyOS-Weather-App
 	url = https://github.com/TechLab-JD/MyOS-Weather-App
+[submodule "apps/MyOS-Markdown-App"]
+	path = apps/MyOS-Markdown-App
+	url = https://github.com/TechLab-JD/MyOS-Markdown-App
+[submodule "apps/MyOS-Color-App"]
+	path = apps/MyOS-Color-App
+	url = https://github.com/TechLab-JD/MyOS-Color-App

@@ -110,6 +110,28 @@
     "height": 440
   },
   {
+    "id": "MarkdownApp",
+    "name": "Markdown",
+    "desc": "Write Markdown with a live preview.",
+    "icon": "apps/MyOS-Markdown-App/icon.svg",
+    "html": "apps/MyOS-Markdown-App/app.html",
+    "css": "apps/MyOS-Markdown-App/app.css",
+    "js": "apps/MyOS-Markdown-App/app.js",
+    "width": 560,
+    "height": 420
+  },
+  {
+    "id": "ColorApp",
+    "name": "Color Picker",
+    "desc": "Pick colors; get hex/rgb/hsl and save a palette.",
+    "icon": "apps/MyOS-Color-App/icon.svg",
+    "html": "apps/MyOS-Color-App/app.html",
+    "css": "apps/MyOS-Color-App/app.css",
+    "js": "apps/MyOS-Color-App/app.js",
+    "width": 380,
+    "height": 440
+  },
+  {
     "id": "GalleryApp",
     "name": "Gallery",
     "desc": "Browse image albums and view them full-screen.",
