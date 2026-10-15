@@ -61,3 +61,33 @@
 [submodule "apps/MyOS-Kanban-App"]
 	path = apps/MyOS-Kanban-App
 	url = https://github.com/TechLab-JD/MyOS-Kanban-App
+[submodule "apps/MyOS-Pomodoro-App"]
+	path = apps/MyOS-Pomodoro-App
+	url = https://github.com/TechLab-JD/MyOS-Pomodoro-App
+[submodule "apps/MyOS-Flashcards-App"]
+	path = apps/MyOS-Flashcards-App
+	url = https://github.com/TechLab-JD/MyOS-Flashcards-App
+[submodule "apps/MyOS-Password-App"]
+	path = apps/MyOS-Password-App
+	url = https://github.com/TechLab-JD/MyOS-Password-App
+[submodule "apps/MyOS-Tip-App"]
+	path = apps/MyOS-Tip-App
+	url = https://github.com/TechLab-JD/MyOS-Tip-App
+[submodule "apps/MyOS-Dice-App"]
+	path = apps/MyOS-Dice-App
+	url = https://github.com/TechLab-JD/MyOS-Dice-App
+[submodule "apps/MyOS-TicTacToe-App"]
+	path = apps/MyOS-TicTacToe-App
+	url = https://github.com/TechLab-JD/MyOS-TicTacToe-App
+[submodule "apps/MyOS-Memory-App"]
+	path = apps/MyOS-Memory-App
+	url = https://github.com/TechLab-JD/MyOS-Memory-App
+[submodule "apps/MyOS-Breakout-App"]
+	path = apps/MyOS-Breakout-App
+	url = https://github.com/TechLab-JD/MyOS-Breakout-App
+[submodule "apps/MyOS-Text-App"]
+	path = apps/MyOS-Text-App
+	url = https://github.com/TechLab-JD/MyOS-Text-App
+[submodule "apps/MyOS-Terminal-App"]
+	path = apps/MyOS-Terminal-App
+	url = https://github.com/TechLab-JD/MyOS-Terminal-App
