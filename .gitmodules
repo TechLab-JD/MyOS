@@ -91,3 +91,33 @@
 [submodule "apps/MyOS-Terminal-App"]
 	path = apps/MyOS-Terminal-App
 	url = https://github.com/TechLab-JD/MyOS-Terminal-App
+[submodule "apps/MyOS-PixelArt-App"]
+	path = apps/MyOS-PixelArt-App
+	url = https://github.com/TechLab-JD/MyOS-PixelArt-App
+[submodule "apps/MyOS-Piano-App"]
+	path = apps/MyOS-Piano-App
+	url = https://github.com/TechLab-JD/MyOS-Piano-App
+[submodule "apps/MyOS-QRCode-App"]
+	path = apps/MyOS-QRCode-App
+	url = https://github.com/TechLab-JD/MyOS-QRCode-App
+[submodule "apps/MyOS-Encoder-App"]
+	path = apps/MyOS-Encoder-App
+	url = https://github.com/TechLab-JD/MyOS-Encoder-App
+[submodule "apps/MyOS-Regex-App"]
+	path = apps/MyOS-Regex-App
+	url = https://github.com/TechLab-JD/MyOS-Regex-App
+[submodule "apps/MyOS-Sudoku-App"]
+	path = apps/MyOS-Sudoku-App
+	url = https://github.com/TechLab-JD/MyOS-Sudoku-App
+[submodule "apps/MyOS-Word-App"]
+	path = apps/MyOS-Word-App
+	url = https://github.com/TechLab-JD/MyOS-Word-App
+[submodule "apps/MyOS-Budget-App"]
+	path = apps/MyOS-Budget-App
+	url = https://github.com/TechLab-JD/MyOS-Budget-App
+[submodule "apps/MyOS-Currency-App"]
+	path = apps/MyOS-Currency-App
+	url = https://github.com/TechLab-JD/MyOS-Currency-App
+[submodule "apps/MyOS-Resizer-App"]
+	path = apps/MyOS-Resizer-App
+	url = https://github.com/TechLab-JD/MyOS-Resizer-App
