@@ -151,3 +151,33 @@
 [submodule "apps/MyOS-Wheel-App"]
 	path = apps/MyOS-Wheel-App
 	url = https://github.com/TechLab-JD/MyOS-Wheel-App.git
+[submodule "apps/MyOS-AgeCalc-App"]
+	path = apps/MyOS-AgeCalc-App
+	url = https://github.com/TechLab-JD/MyOS-AgeCalc-App.git
+[submodule "apps/MyOS-BaseConv-App"]
+	path = apps/MyOS-BaseConv-App
+	url = https://github.com/TechLab-JD/MyOS-BaseConv-App.git
+[submodule "apps/MyOS-BillSplit-App"]
+	path = apps/MyOS-BillSplit-App
+	url = https://github.com/TechLab-JD/MyOS-BillSplit-App.git
+[submodule "apps/MyOS-Breathing-App"]
+	path = apps/MyOS-Breathing-App
+	url = https://github.com/TechLab-JD/MyOS-Breathing-App.git
+[submodule "apps/MyOS-Checkers-App"]
+	path = apps/MyOS-Checkers-App
+	url = https://github.com/TechLab-JD/MyOS-Checkers-App.git
+[submodule "apps/MyOS-Gradient-App"]
+	path = apps/MyOS-Gradient-App
+	url = https://github.com/TechLab-JD/MyOS-Gradient-App.git
+[submodule "apps/MyOS-Puzzle-App"]
+	path = apps/MyOS-Puzzle-App
+	url = https://github.com/TechLab-JD/MyOS-Puzzle-App.git
+[submodule "apps/MyOS-Simon-App"]
+	path = apps/MyOS-Simon-App
+	url = https://github.com/TechLab-JD/MyOS-Simon-App.git
+[submodule "apps/MyOS-Timestamp-App"]
+	path = apps/MyOS-Timestamp-App
+	url = https://github.com/TechLab-JD/MyOS-Timestamp-App.git
+[submodule "apps/MyOS-WorldClock-App"]
+	path = apps/MyOS-WorldClock-App
+	url = https://github.com/TechLab-JD/MyOS-WorldClock-App.git
