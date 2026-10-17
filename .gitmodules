@@ -121,3 +121,33 @@
 [submodule "apps/MyOS-Resizer-App"]
 	path = apps/MyOS-Resizer-App
 	url = https://github.com/TechLab-JD/MyOS-Resizer-App
+[submodule "apps/MyOS-BMI-App"]
+	path = apps/MyOS-BMI-App
+	url = https://github.com/TechLab-JD/MyOS-BMI-App.git
+[submodule "apps/MyOS-ConnectFour-App"]
+	path = apps/MyOS-ConnectFour-App
+	url = https://github.com/TechLab-JD/MyOS-ConnectFour-App.git
+[submodule "apps/MyOS-Countdown-App"]
+	path = apps/MyOS-Countdown-App
+	url = https://github.com/TechLab-JD/MyOS-Countdown-App.git
+[submodule "apps/MyOS-Hash-App"]
+	path = apps/MyOS-Hash-App
+	url = https://github.com/TechLab-JD/MyOS-Hash-App.git
+[submodule "apps/MyOS-Lorem-App"]
+	path = apps/MyOS-Lorem-App
+	url = https://github.com/TechLab-JD/MyOS-Lorem-App.git
+[submodule "apps/MyOS-Metronome-App"]
+	path = apps/MyOS-Metronome-App
+	url = https://github.com/TechLab-JD/MyOS-Metronome-App.git
+[submodule "apps/MyOS-Reaction-App"]
+	path = apps/MyOS-Reaction-App
+	url = https://github.com/TechLab-JD/MyOS-Reaction-App.git
+[submodule "apps/MyOS-Stopwatch-App"]
+	path = apps/MyOS-Stopwatch-App
+	url = https://github.com/TechLab-JD/MyOS-Stopwatch-App.git
+[submodule "apps/MyOS-UUID-App"]
+	path = apps/MyOS-UUID-App
+	url = https://github.com/TechLab-JD/MyOS-UUID-App.git
+[submodule "apps/MyOS-Wheel-App"]
+	path = apps/MyOS-Wheel-App
+	url = https://github.com/TechLab-JD/MyOS-Wheel-App.git
