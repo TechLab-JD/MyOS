@@ -118,7 +118,9 @@
   };
 
   MyOS.init = function () {
-    return fetch(CATALOG_URL)
+    // Cache-bust the catalog so newly added apps appear on first load, not after the
+    // 10-minute GitHub Pages cache expires.
+    return fetch(CATALOG_URL + '?v=' + Date.now(), { cache: 'no-store' })
       .then((res) => res.json())
       .then((catalog) => {
         MyOS.catalog = catalog;
