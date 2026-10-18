@@ -181,3 +181,33 @@
 [submodule "apps/MyOS-WorldClock-App"]
 	path = apps/MyOS-WorldClock-App
 	url = https://github.com/TechLab-JD/MyOS-WorldClock-App.git
+[submodule "apps/MyOS-LightsOut-App"]
+	path = apps/MyOS-LightsOut-App
+	url = https://github.com/TechLab-JD/MyOS-LightsOut-App.git
+[submodule "apps/MyOS-Mastermind-App"]
+	path = apps/MyOS-Mastermind-App
+	url = https://github.com/TechLab-JD/MyOS-Mastermind-App.git
+[submodule "apps/MyOS-Hangman-App"]
+	path = apps/MyOS-Hangman-App
+	url = https://github.com/TechLab-JD/MyOS-Hangman-App.git
+[submodule "apps/MyOS-Loan-App"]
+	path = apps/MyOS-Loan-App
+	url = https://github.com/TechLab-JD/MyOS-Loan-App.git
+[submodule "apps/MyOS-Diff-App"]
+	path = apps/MyOS-Diff-App
+	url = https://github.com/TechLab-JD/MyOS-Diff-App.git
+[submodule "apps/MyOS-Contrast-App"]
+	path = apps/MyOS-Contrast-App
+	url = https://github.com/TechLab-JD/MyOS-Contrast-App.git
+[submodule "apps/MyOS-AsciiArt-App"]
+	path = apps/MyOS-AsciiArt-App
+	url = https://github.com/TechLab-JD/MyOS-AsciiArt-App.git
+[submodule "apps/MyOS-Drum-App"]
+	path = apps/MyOS-Drum-App
+	url = https://github.com/TechLab-JD/MyOS-Drum-App.git
+[submodule "apps/MyOS-Noise-App"]
+	path = apps/MyOS-Noise-App
+	url = https://github.com/TechLab-JD/MyOS-Noise-App.git
+[submodule "apps/MyOS-Morse-App"]
+	path = apps/MyOS-Morse-App
+	url = https://github.com/TechLab-JD/MyOS-Morse-App.git
