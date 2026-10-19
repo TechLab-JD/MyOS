@@ -39,6 +39,7 @@ class WindowManager {
     bringToFront(win) {
         this.highestZIndex += 1;
         win.style.zIndex = this.highestZIndex;
+        if (window.MyOS && win && win.id) window.MyOS.activeAppId = win.id;
     }
 
     setupWindow(win) {
@@ -75,9 +76,18 @@ class WindowManager {
         // Close functionality
         closeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // hide via inline style so app's author CSS doesn't override it
+            // Stop the app's background activity (looping audio, timers) before hiding,
+            // so a closed app doesn't keep running. hide via inline style so the app's
+            // author CSS doesn't override it.
+            if (window.MyOS && typeof window.MyOS.stopApp === 'function') window.MyOS.stopApp(win.id);
             win.style.display = 'none';
         });
+
+        // Track which app the user is interacting with, so applife.js can attribute
+        // the timers/audio an app starts to that app (and stop them on close).
+        win.addEventListener('pointerdown', () => {
+            if (window.MyOS && win.id) window.MyOS.activeAppId = win.id;
+        }, true);
 
         // Double-click the header to maximize / restore
         header.addEventListener('dblclick', (e) => {
