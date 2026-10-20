@@ -211,3 +211,33 @@
 [submodule "apps/MyOS-Morse-App"]
 	path = apps/MyOS-Morse-App
 	url = https://github.com/TechLab-JD/MyOS-Morse-App.git
+[submodule "apps/MyOS-Chess-App"]
+	path = apps/MyOS-Chess-App
+	url = https://github.com/TechLab-JD/MyOS-Chess-App.git
+[submodule "apps/MyOS-Typing-App"]
+	path = apps/MyOS-Typing-App
+	url = https://github.com/TechLab-JD/MyOS-Typing-App.git
+[submodule "apps/MyOS-Tally-App"]
+	path = apps/MyOS-Tally-App
+	url = https://github.com/TechLab-JD/MyOS-Tally-App.git
+[submodule "apps/MyOS-Scoreboard-App"]
+	path = apps/MyOS-Scoreboard-App
+	url = https://github.com/TechLab-JD/MyOS-Scoreboard-App.git
+[submodule "apps/MyOS-Meme-App"]
+	path = apps/MyOS-Meme-App
+	url = https://github.com/TechLab-JD/MyOS-Meme-App.git
+[submodule "apps/MyOS-Palette-App"]
+	path = apps/MyOS-Palette-App
+	url = https://github.com/TechLab-JD/MyOS-Palette-App.git
+[submodule "apps/MyOS-JWT-App"]
+	path = apps/MyOS-JWT-App
+	url = https://github.com/TechLab-JD/MyOS-JWT-App.git
+[submodule "apps/MyOS-Water-App"]
+	path = apps/MyOS-Water-App
+	url = https://github.com/TechLab-JD/MyOS-Water-App.git
+[submodule "apps/MyOS-Mood-App"]
+	path = apps/MyOS-Mood-App
+	url = https://github.com/TechLab-JD/MyOS-Mood-App.git
+[submodule "apps/MyOS-Eisenhower-App"]
+	path = apps/MyOS-Eisenhower-App
+	url = https://github.com/TechLab-JD/MyOS-Eisenhower-App.git
