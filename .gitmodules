@@ -241,3 +241,33 @@
 [submodule "apps/MyOS-Eisenhower-App"]
 	path = apps/MyOS-Eisenhower-App
 	url = https://github.com/TechLab-JD/MyOS-Eisenhower-App.git
+[submodule "apps/MyOS-Grocery-App"]
+	path = apps/MyOS-Grocery-App
+	url = https://github.com/TechLab-JD/MyOS-Grocery-App.git
+[submodule "apps/MyOS-Recipe-App"]
+	path = apps/MyOS-Recipe-App
+	url = https://github.com/TechLab-JD/MyOS-Recipe-App.git
+[submodule "apps/MyOS-Savings-App"]
+	path = apps/MyOS-Savings-App
+	url = https://github.com/TechLab-JD/MyOS-Savings-App.git
+[submodule "apps/MyOS-Soundboard-App"]
+	path = apps/MyOS-Soundboard-App
+	url = https://github.com/TechLab-JD/MyOS-Soundboard-App.git
+[submodule "apps/MyOS-Tone-App"]
+	path = apps/MyOS-Tone-App
+	url = https://github.com/TechLab-JD/MyOS-Tone-App.git
+[submodule "apps/MyOS-Teams-App"]
+	path = apps/MyOS-Teams-App
+	url = https://github.com/TechLab-JD/MyOS-Teams-App.git
+[submodule "apps/MyOS-Roman-App"]
+	path = apps/MyOS-Roman-App
+	url = https://github.com/TechLab-JD/MyOS-Roman-App.git
+[submodule "apps/MyOS-Caesar-App"]
+	path = apps/MyOS-Caesar-App
+	url = https://github.com/TechLab-JD/MyOS-Caesar-App.git
+[submodule "apps/MyOS-Interval-App"]
+	path = apps/MyOS-Interval-App
+	url = https://github.com/TechLab-JD/MyOS-Interval-App.git
+[submodule "apps/MyOS-RPS-App"]
+	path = apps/MyOS-RPS-App
+	url = https://github.com/TechLab-JD/MyOS-RPS-App.git
