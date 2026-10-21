@@ -271,3 +271,30 @@
 [submodule "apps/MyOS-RPS-App"]
 	path = apps/MyOS-RPS-App
 	url = https://github.com/TechLab-JD/MyOS-RPS-App.git
+[submodule "apps/MyOS-Percent-App"]
+	path = apps/MyOS-Percent-App
+	url = https://github.com/TechLab-JD/MyOS-Percent-App.git
+[submodule "apps/MyOS-Compound-App"]
+	path = apps/MyOS-Compound-App
+	url = https://github.com/TechLab-JD/MyOS-Compound-App.git
+[submodule "apps/MyOS-UnitPrice-App"]
+	path = apps/MyOS-UnitPrice-App
+	url = https://github.com/TechLab-JD/MyOS-UnitPrice-App.git
+[submodule "apps/MyOS-TapTempo-App"]
+	path = apps/MyOS-TapTempo-App
+	url = https://github.com/TechLab-JD/MyOS-TapTempo-App.git
+[submodule "apps/MyOS-EightBall-App"]
+	path = apps/MyOS-EightBall-App
+	url = https://github.com/TechLab-JD/MyOS-EightBall-App.git
+[submodule "apps/MyOS-Guess-App"]
+	path = apps/MyOS-Guess-App
+	url = https://github.com/TechLab-JD/MyOS-Guess-App.git
+[submodule "apps/MyOS-Whack-App"]
+	path = apps/MyOS-Whack-App
+	url = https://github.com/TechLab-JD/MyOS-Whack-App.git
+[submodule "apps/MyOS-Scramble-App"]
+	path = apps/MyOS-Scramble-App
+	url = https://github.com/TechLab-JD/MyOS-Scramble-App.git
+[submodule "apps/MyOS-KeyTest-App"]
+	path = apps/MyOS-KeyTest-App
+	url = https://github.com/TechLab-JD/MyOS-KeyTest-App.git

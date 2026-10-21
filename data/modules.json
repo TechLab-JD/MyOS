@@ -1102,5 +1102,113 @@
     "js": "apps/MyOS-RPS-App/app.js",
     "width": 420,
     "height": 460
+  },
+  {
+    "id": "PercentApp",
+    "name": "Percentage Calculator",
+    "desc": "Three everyday percentage questions, answered as you type.",
+    "category": "Utilities",
+    "icon": "apps/MyOS-Percent-App/icon.svg",
+    "html": "apps/MyOS-Percent-App/app.html",
+    "css": "apps/MyOS-Percent-App/app.css",
+    "js": "apps/MyOS-Percent-App/app.js",
+    "width": 380,
+    "height": 420
+  },
+  {
+    "id": "CompoundApp",
+    "name": "Compound Interest",
+    "desc": "See how savings grow with compound interest and monthly contributions.",
+    "category": "Finance",
+    "icon": "apps/MyOS-Compound-App/icon.svg",
+    "html": "apps/MyOS-Compound-App/app.html",
+    "css": "apps/MyOS-Compound-App/app.css",
+    "js": "apps/MyOS-Compound-App/app.js",
+    "width": 400,
+    "height": 460
+  },
+  {
+    "id": "UnitPriceApp",
+    "name": "Unit Price Compare",
+    "desc": "Which size is really the better deal? Compare price per unit.",
+    "category": "Utilities",
+    "icon": "apps/MyOS-UnitPrice-App/icon.svg",
+    "html": "apps/MyOS-UnitPrice-App/app.html",
+    "css": "apps/MyOS-UnitPrice-App/app.css",
+    "js": "apps/MyOS-UnitPrice-App/app.js",
+    "width": 400,
+    "height": 420
+  },
+  {
+    "id": "TapTempoApp",
+    "name": "Tap Tempo",
+    "desc": "Tap along to any beat and read the tempo in BPM.",
+    "category": "Music",
+    "icon": "apps/MyOS-TapTempo-App/icon.svg",
+    "html": "apps/MyOS-TapTempo-App/app.html",
+    "css": "apps/MyOS-TapTempo-App/app.css",
+    "js": "apps/MyOS-TapTempo-App/app.js",
+    "width": 360,
+    "height": 400
+  },
+  {
+    "id": "EightBallApp",
+    "name": "Magic 8-Ball",
+    "desc": "Ask a yes/no question and let the ball decide.",
+    "category": "Fun",
+    "icon": "apps/MyOS-EightBall-App/icon.svg",
+    "html": "apps/MyOS-EightBall-App/app.html",
+    "css": "apps/MyOS-EightBall-App/app.css",
+    "js": "apps/MyOS-EightBall-App/app.js",
+    "width": 360,
+    "height": 420
+  },
+  {
+    "id": "GuessApp",
+    "name": "Number Guess",
+    "desc": "The computer picks 1-100; you guess with higher/lower hints.",
+    "category": "Games",
+    "icon": "apps/MyOS-Guess-App/icon.svg",
+    "html": "apps/MyOS-Guess-App/app.html",
+    "css": "apps/MyOS-Guess-App/app.css",
+    "js": "apps/MyOS-Guess-App/app.js",
+    "width": 360,
+    "height": 400
+  },
+  {
+    "id": "WhackApp",
+    "name": "Whack-a-Mole",
+    "desc": "A 30-second reflex game: tap the mole before it vanishes.",
+    "category": "Games",
+    "icon": "apps/MyOS-Whack-App/icon.svg",
+    "html": "apps/MyOS-Whack-App/app.html",
+    "css": "apps/MyOS-Whack-App/app.css",
+    "js": "apps/MyOS-Whack-App/app.js",
+    "width": 380,
+    "height": 460
+  },
+  {
+    "id": "ScrambleApp",
+    "name": "Word Scramble",
+    "desc": "Unscramble the letters to find the hidden word.",
+    "category": "Games",
+    "icon": "apps/MyOS-Scramble-App/icon.svg",
+    "html": "apps/MyOS-Scramble-App/app.html",
+    "css": "apps/MyOS-Scramble-App/app.css",
+    "js": "apps/MyOS-Scramble-App/app.js",
+    "width": 380,
+    "height": 420
+  },
+  {
+    "id": "KeyTestApp",
+    "name": "Key Tester",
+    "desc": "Press any key and see its name, code and keyCode - handy for developers.",
+    "category": "Utilities",
+    "icon": "apps/MyOS-KeyTest-App/icon.svg",
+    "html": "apps/MyOS-KeyTest-App/app.html",
+    "css": "apps/MyOS-KeyTest-App/app.css",
+    "js": "apps/MyOS-KeyTest-App/app.js",
+    "width": 400,
+    "height": 400
   }
 ]
