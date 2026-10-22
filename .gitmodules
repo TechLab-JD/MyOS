@@ -298,3 +298,6 @@
 [submodule "apps/MyOS-KeyTest-App"]
 	path = apps/MyOS-KeyTest-App
 	url = https://github.com/TechLab-JD/MyOS-KeyTest-App.git
+[submodule "apps/MyOS-SortViz-App"]
+	path = apps/MyOS-SortViz-App
+	url = https://github.com/TechLab-JD/MyOS-SortViz-App.git

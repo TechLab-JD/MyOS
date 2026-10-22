@@ -1210,5 +1210,17 @@
     "js": "apps/MyOS-KeyTest-App/app.js",
     "width": 400,
     "height": 400
+  },
+  {
+    "id": "SortVizApp",
+    "name": "Sorting Visualizer",
+    "desc": "Watch bubble sort put a set of bars in order, step by step.",
+    "category": "Education",
+    "icon": "apps/MyOS-SortViz-App/icon.svg",
+    "html": "apps/MyOS-SortViz-App/app.html",
+    "css": "apps/MyOS-SortViz-App/app.css",
+    "js": "apps/MyOS-SortViz-App/app.js",
+    "width": 440,
+    "height": 420
   }
 ]
